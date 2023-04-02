@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C3B6E2F929D91C3F00A4AFAC /* DermBaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E2F829D91C3F00A4AFAC /* DermBaseApp.swift */; };
+		C3B6E2FB29D91C3F00A4AFAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E2FA29D91C3F00A4AFAC /* ContentView.swift */; };
+		C3B6E2FD29D91C4200A4AFAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B6E2FC29D91C4200A4AFAC /* Assets.xcassets */; };
+		C3B6E30029D91C4200A4AFAC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B6E2FF29D91C4200A4AFAC /* Preview Assets.xcassets */; };
+		C3B6E30A29D91C4300A4AFAC /* DermBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E30929D91C4300A4AFAC /* DermBaseTests.swift */; };
+		C3B6E31429D91C4300A4AFAC /* DermBaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E31329D91C4300A4AFAC /* DermBaseUITests.swift */; };
+		C3B6E31629D91C4300A4AFAC /* DermBaseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E31529D91C4300A4AFAC /* DermBaseUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C3B6E30629D91C4300A4AFAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3B6E2ED29D91C3F00A4AFAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3B6E2F429D91C3F00A4AFAC;
+			remoteInfo = DermBase;
+		};
+		C3B6E31029D91C4300A4AFAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3B6E2ED29D91C3F00A4AFAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3B6E2F429D91C3F00A4AFAC;
+			remoteInfo = DermBase;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C3B6E2F529D91C3F00A4AFAC /* DermBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DermBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3B6E2F829D91C3F00A4AFAC /* DermBaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermBaseApp.swift; sourceTree = "<group>"; };
+		C3B6E2FA29D91C3F00A4AFAC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C3B6E2FC29D91C4200A4AFAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C3B6E2FF29D91C4200A4AFAC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C3B6E30529D91C4300A4AFAC /* DermBaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DermBaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3B6E30929D91C4300A4AFAC /* DermBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermBaseTests.swift; sourceTree = "<group>"; };
+		C3B6E30F29D91C4300A4AFAC /* DermBaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DermBaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3B6E31329D91C4300A4AFAC /* DermBaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermBaseUITests.swift; sourceTree = "<group>"; };
+		C3B6E31529D91C4300A4AFAC /* DermBaseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermBaseUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3B6E2F229D91C3F00A4AFAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3B6E30229D91C4300A4AFAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3B6E30C29D91C4300A4AFAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C3B6E2EC29D91C3F00A4AFAC = {
+			isa = PBXGroup;
+			children = (
+				C3B6E2F729D91C3F00A4AFAC /* DermBase */,
+				C3B6E30829D91C4300A4AFAC /* DermBaseTests */,
+				C3B6E31229D91C4300A4AFAC /* DermBaseUITests */,
+				C3B6E2F629D91C3F00A4AFAC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C3B6E2F629D91C3F00A4AFAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3B6E2F529D91C3F00A4AFAC /* DermBase.app */,
+				C3B6E30529D91C4300A4AFAC /* DermBaseTests.xctest */,
+				C3B6E30F29D91C4300A4AFAC /* DermBaseUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3B6E2F729D91C3F00A4AFAC /* DermBase */ = {
+			isa = PBXGroup;
+			children = (
+				C3B6E2F829D91C3F00A4AFAC /* DermBaseApp.swift */,
+				C3B6E2FA29D91C3F00A4AFAC /* ContentView.swift */,
+				C3B6E2FC29D91C4200A4AFAC /* Assets.xcassets */,
+				C3B6E2FE29D91C4200A4AFAC /* Preview Content */,
+			);
+			path = DermBase;
+			sourceTree = "<group>";
+		};
+		C3B6E2FE29D91C4200A4AFAC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C3B6E2FF29D91C4200A4AFAC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C3B6E30829D91C4300A4AFAC /* DermBaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3B6E30929D91C4300A4AFAC /* DermBaseTests.swift */,
+			);
+			path = DermBaseTests;
+			sourceTree = "<group>";
+		};
+		C3B6E31229D91C4300A4AFAC /* DermBaseUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C3B6E31329D91C4300A4AFAC /* DermBaseUITests.swift */,
+				C3B6E31529D91C4300A4AFAC /* DermBaseUITestsLaunchTests.swift */,
+			);
+			path = DermBaseUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3B6E2F429D91C3F00A4AFAC /* DermBase */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3B6E31929D91C4300A4AFAC /* Build configuration list for PBXNativeTarget "DermBase" */;
+			buildPhases = (
+				C3B6E2F129D91C3F00A4AFAC /* Sources */,
+				C3B6E2F229D91C3F00A4AFAC /* Frameworks */,
+				C3B6E2F329D91C3F00A4AFAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DermBase;
+			productName = DermBase;
+			productReference = C3B6E2F529D91C3F00A4AFAC /* DermBase.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C3B6E30429D91C4300A4AFAC /* DermBaseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3B6E31C29D91C4300A4AFAC /* Build configuration list for PBXNativeTarget "DermBaseTests" */;
+			buildPhases = (
+				C3B6E30129D91C4300A4AFAC /* Sources */,
+				C3B6E30229D91C4300A4AFAC /* Frameworks */,
+				C3B6E30329D91C4300A4AFAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3B6E30729D91C4300A4AFAC /* PBXTargetDependency */,
+			);
+			name = DermBaseTests;
+			productName = DermBaseTests;
+			productReference = C3B6E30529D91C4300A4AFAC /* DermBaseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C3B6E30E29D91C4300A4AFAC /* DermBaseUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3B6E31F29D91C4300A4AFAC /* Build configuration list for PBXNativeTarget "DermBaseUITests" */;
+			buildPhases = (
+				C3B6E30B29D91C4300A4AFAC /* Sources */,
+				C3B6E30C29D91C4300A4AFAC /* Frameworks */,
+				C3B6E30D29D91C4300A4AFAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3B6E31129D91C4300A4AFAC /* PBXTargetDependency */,
+			);
+			name = DermBaseUITests;
+			productName = DermBaseUITests;
+			productReference = C3B6E30F29D91C4300A4AFAC /* DermBaseUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3B6E2ED29D91C3F00A4AFAC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					C3B6E2F429D91C3F00A4AFAC = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					C3B6E30429D91C4300A4AFAC = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = C3B6E2F429D91C3F00A4AFAC;
+					};
+					C3B6E30E29D91C4300A4AFAC = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = C3B6E2F429D91C3F00A4AFAC;
+					};
+				};
+			};
+			buildConfigurationList = C3B6E2F029D91C3F00A4AFAC /* Build configuration list for PBXProject "DermBase" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C3B6E2EC29D91C3F00A4AFAC;
+			productRefGroup = C3B6E2F629D91C3F00A4AFAC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3B6E2F429D91C3F00A4AFAC /* DermBase */,
+				C3B6E30429D91C4300A4AFAC /* DermBaseTests */,
+				C3B6E30E29D91C4300A4AFAC /* DermBaseUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3B6E2F329D91C3F00A4AFAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3B6E30029D91C4200A4AFAC /* Preview Assets.xcassets in Resources */,
+				C3B6E2FD29D91C4200A4AFAC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3B6E30329D91C4300A4AFAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3B6E30D29D91C4300A4AFAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3B6E2F129D91C3F00A4AFAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3B6E2FB29D91C3F00A4AFAC /* ContentView.swift in Sources */,
+				C3B6E2F929D91C3F00A4AFAC /* DermBaseApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3B6E30129D91C4300A4AFAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3B6E30A29D91C4300A4AFAC /* DermBaseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3B6E30B29D91C4300A4AFAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3B6E31629D91C4300A4AFAC /* DermBaseUITestsLaunchTests.swift in Sources */,
+				C3B6E31429D91C4300A4AFAC /* DermBaseUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3B6E30729D91C4300A4AFAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3B6E2F429D91C3F00A4AFAC /* DermBase */;
+			targetProxy = C3B6E30629D91C4300A4AFAC /* PBXContainerItemProxy */;
+		};
+		C3B6E31129D91C4300A4AFAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3B6E2F429D91C3F00A4AFAC /* DermBase */;
+			targetProxy = C3B6E31029D91C4300A4AFAC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C3B6E31729D91C4300A4AFAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C3B6E31829D91C4300A4AFAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C3B6E31A29D91C4300A4AFAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DermBase/Preview Content\"";
+				DEVELOPMENT_TEAM = 2W8LWG84DK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DermBase.DermBase;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C3B6E31B29D91C4300A4AFAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DermBase/Preview Content\"";
+				DEVELOPMENT_TEAM = 2W8LWG84DK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DermBase.DermBase;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C3B6E31D29D91C4300A4AFAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2W8LWG84DK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DermBase.DermBaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DermBase.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DermBase";
+			};
+			name = Debug;
+		};
+		C3B6E31E29D91C4300A4AFAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2W8LWG84DK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DermBase.DermBaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DermBase.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DermBase";
+			};
+			name = Release;
+		};
+		C3B6E32029D91C4300A4AFAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2W8LWG84DK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DermBase.DermBaseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DermBase;
+			};
+			name = Debug;
+		};
+		C3B6E32129D91C4300A4AFAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2W8LWG84DK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DermBase.DermBaseUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DermBase;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3B6E2F029D91C3F00A4AFAC /* Build configuration list for PBXProject "DermBase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3B6E31729D91C4300A4AFAC /* Debug */,
+				C3B6E31829D91C4300A4AFAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3B6E31929D91C4300A4AFAC /* Build configuration list for PBXNativeTarget "DermBase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3B6E31A29D91C4300A4AFAC /* Debug */,
+				C3B6E31B29D91C4300A4AFAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3B6E31C29D91C4300A4AFAC /* Build configuration list for PBXNativeTarget "DermBaseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3B6E31D29D91C4300A4AFAC /* Debug */,
+				C3B6E31E29D91C4300A4AFAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3B6E31F29D91C4300A4AFAC /* Build configuration list for PBXNativeTarget "DermBaseUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3B6E32029D91C4300A4AFAC /* Debug */,
+				C3B6E32129D91C4300A4AFAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C3B6E2ED29D91C3F00A4AFAC /* Project object */;
+}
