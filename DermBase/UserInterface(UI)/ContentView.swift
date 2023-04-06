@@ -14,10 +14,10 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 Spacer()
-                Image("dermbase_logo")
+                Image("Logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 150, height: 150)
+                    .frame(width: 414, height: 404)
                     .padding(.bottom, 40)
                 Text("Welcome to DermBase")
                     .foregroundColor(Color.white)
