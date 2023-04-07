@@ -17,13 +17,16 @@ struct ContentView: View {
                 Image("Logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 414, height: 404)
-                    .padding(.bottom, 40)
+                    .frame(width: 390, height: 370)
+                    .padding(.bottom, 50)
+                    .padding(.top, -100)
                 Text("Welcome to DermBase")
-                    .foregroundColor(Color.white)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.bottom, 20)
+                    .foregroundColor(.white)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .padding(.top, -100)
+                
+                //NavigationLink(destination: LoginView())
                 Button(action: {
                     // handle button action
                 }) {
@@ -33,8 +36,10 @@ struct ContentView: View {
                         .fontWeight(.semibold)
                         .padding()
                 }
+                .frame(width: 200, height: 50)
                 .background(Color(hex: "E37825"))
-                .cornerRadius(10)
+                .buttonStyle(.bordered)
+                .cornerRadius(20)
                 .padding(.horizontal, 50)
                 Spacer()
             }
