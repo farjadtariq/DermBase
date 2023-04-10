@@ -25,7 +25,7 @@ struct DermBaseApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GetStarted()
         }
     }
 }

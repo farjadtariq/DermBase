@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C374F81C29DDEB9A00F856CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C374F81B29DDEB9900F856CA /* GoogleService-Info.plist */; };
 		C3B6E2F929D91C3F00A4AFAC /* DermBaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E2F829D91C3F00A4AFAC /* DermBaseApp.swift */; };
-		C3B6E2FB29D91C3F00A4AFAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E2FA29D91C3F00A4AFAC /* ContentView.swift */; };
+		C3B6E2FB29D91C3F00A4AFAC /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E2FA29D91C3F00A4AFAC /* GetStartedView.swift */; };
 		C3B6E2FD29D91C4200A4AFAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B6E2FC29D91C4200A4AFAC /* Assets.xcassets */; };
 		C3B6E30029D91C4200A4AFAC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B6E2FF29D91C4200A4AFAC /* Preview Assets.xcassets */; };
 		C3B6E30A29D91C4300A4AFAC /* DermBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E30929D91C4300A4AFAC /* DermBaseTests.swift */; };
@@ -25,6 +25,11 @@
 		C3F0EE0629DF1C88008A6B66 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C3F0EE0529DF1C88008A6B66 /* FirebaseFirestoreSwift */; };
 		C3F0EE0829DF1C88008A6B66 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = C3F0EE0729DF1C88008A6B66 /* FirebaseFunctions */; };
 		C3F0EE0A29DF1C88008A6B66 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C3F0EE0929DF1C88008A6B66 /* FirebaseStorage */; };
+		C3F0EE0E29DFA96A008A6B66 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F0EE0D29DFA96A008A6B66 /* Color+Hex.swift */; };
+		C3F0EE1229E0A6A9008A6B66 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F0EE1129E0A6A9008A6B66 /* LoginView.swift */; };
+		C3F0EE1429E0A731008A6B66 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F0EE1329E0A731008A6B66 /* RegistrationView.swift */; };
+		C3F0EE1629E0F6D1008A6B66 /* DermButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F0EE1529E0F6D1008A6B66 /* DermButton.swift */; };
+		C3F0EE1829E1546A008A6B66 /* MedicationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F0EE1729E1546A008A6B66 /* MedicationsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +53,7 @@
 		C374F81B29DDEB9900F856CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3B6E2F529D91C3F00A4AFAC /* DermBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DermBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B6E2F829D91C3F00A4AFAC /* DermBaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermBaseApp.swift; sourceTree = "<group>"; };
-		C3B6E2FA29D91C3F00A4AFAC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C3B6E2FA29D91C3F00A4AFAC /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
 		C3B6E2FC29D91C4200A4AFAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3B6E2FF29D91C4200A4AFAC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C3B6E30529D91C4300A4AFAC /* DermBaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DermBaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +61,11 @@
 		C3B6E30F29D91C4300A4AFAC /* DermBaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DermBaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B6E31329D91C4300A4AFAC /* DermBaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermBaseUITests.swift; sourceTree = "<group>"; };
 		C3B6E31529D91C4300A4AFAC /* DermBaseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermBaseUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C3F0EE0D29DFA96A008A6B66 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		C3F0EE1129E0A6A9008A6B66 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C3F0EE1329E0A731008A6B66 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		C3F0EE1529E0F6D1008A6B66 /* DermButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermButton.swift; sourceTree = "<group>"; };
+		C3F0EE1729E1546A008A6B66 /* MedicationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +106,12 @@
 		C374F81829DDDE5700F856CA /* UserInterface(UI) */ = {
 			isa = PBXGroup;
 			children = (
-				C3B6E2FA29D91C3F00A4AFAC /* ContentView.swift */,
+				C3F0EE0D29DFA96A008A6B66 /* Color+Hex.swift */,
+				C3B6E2FA29D91C3F00A4AFAC /* GetStartedView.swift */,
+				C3F0EE1729E1546A008A6B66 /* MedicationsView.swift */,
+				C3F0EE1129E0A6A9008A6B66 /* LoginView.swift */,
+				C3F0EE1329E0A731008A6B66 /* RegistrationView.swift */,
+				C3F0EE1529E0F6D1008A6B66 /* DermButton.swift */,
 			);
 			path = "UserInterface(UI)";
 			sourceTree = "<group>";
@@ -320,8 +335,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3B6E2FB29D91C3F00A4AFAC /* ContentView.swift in Sources */,
+				C3F0EE1829E1546A008A6B66 /* MedicationsView.swift in Sources */,
+				C3F0EE1229E0A6A9008A6B66 /* LoginView.swift in Sources */,
+				C3F0EE0E29DFA96A008A6B66 /* Color+Hex.swift in Sources */,
+				C3B6E2FB29D91C3F00A4AFAC /* GetStartedView.swift in Sources */,
 				C3B6E2F929D91C3F00A4AFAC /* DermBaseApp.swift in Sources */,
+				C3F0EE1429E0A731008A6B66 /* RegistrationView.swift in Sources */,
+				C3F0EE1629E0F6D1008A6B66 /* DermButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
