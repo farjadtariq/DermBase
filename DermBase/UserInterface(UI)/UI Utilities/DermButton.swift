@@ -10,7 +10,6 @@ import SwiftUI
 struct DermButton: View {
     
     var title: String
-    //var backgroundColor: Color
     
     var body: some View {
         Text(title)

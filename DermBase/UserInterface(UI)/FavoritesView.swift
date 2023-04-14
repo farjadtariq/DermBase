@@ -1,20 +1,20 @@
 //
-//  MedicationsView.swift
+//  FavoritesView.swift
 //  DermBase
 //
-//  Created by Farjad on 08/04/2023.
+//  Created by Farjad on 14/04/2023.
 //
 
 import SwiftUI
 
-struct MedicationsView: View {
+struct FavoritesView: View {
     @State private var searchText: String = ""
     @State private var selectedCategory: String = "All"
     
     var body: some View {
         NavigationView {
             VStack {
-                CustomNavigationBar(title: "Medications", showBackButton: false)
+                CustomNavigationBar(title: "Favorites", showBackButton: false)
                 {
                     
                     SearchBar(text: $searchText)
@@ -37,27 +37,8 @@ struct MedicationsView: View {
     }
 }
 
-
-
-/*
-
-
-struct MedicationList: View {
-    var searchText: String
-    var selectedCategory: String
-    
-    var body: some View {
-        // Implement your medication list here
-    }
-}
-*/
-
-
-
-struct MedicationsView_Previews: PreviewProvider
-{
-    static var previews: some View
-    {
-        MedicationsView()
+struct FavoritesView_Previews: PreviewProvider {
+    static var previews: some View {
+        FavoritesView()
     }
 }

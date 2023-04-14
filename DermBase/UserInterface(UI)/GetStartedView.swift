@@ -7,54 +7,53 @@
 
 import SwiftUI
 
-struct GetStarted: View {
-    @State private var isActive = false
-    
-    var body: some View {
-        ZStack {
-            Color(hex: "1C3968")
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack {
-                Spacer()
-                Image("Logo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 390, height: 370)
-                    .padding(.bottom, 50)
-                    .padding(.top, -100)
+struct GetStarted: View
+{
+    var body: some View
+    {
+        NavigationView
+        {
+            ZStack
+            {
+                Color(hex: "1C3968")
+                    .edgesIgnoringSafeArea(.all)
                 
-                Text("Welcome to DermBase")
-                    .foregroundColor(.white)
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .padding(.top, -100)
-                NavigationView {
-                    ZStack{
-                        Button(action: {isActive = true})
-                        {
-                            DermButton(title: "Get Started")
-                        }
-                        /*.sheet(isPresented: $isActive) {
-                         LoginView()
-                         }*/
-                        
-                        Spacer()
-                        
-                        NavigationLink("", destination: LoginView(), isActive: $isActive)
-                            .opacity(0)
+                //VStack holding the Logo, Welcome text and Get Started Button
+                VStack
+                {
+                    Spacer()
+                    Image("Logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 390, height: 370)
+                        .padding(.bottom, 50)
+                        .padding(.top, -100)
+                    
+                    Text("Welcome to DermBase")
+                        .foregroundColor(.white)
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .padding(.top, -100)
+                    
+                    
+                    NavigationLink(destination: LoginView())
+                    {
+                        DermButton(title: "Get Started")
                     }
+                    
+                    Spacer()
                 }
-               
-                
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
 
-struct GetStarted_Previews: PreviewProvider {
-    static var previews: some View {
+struct GetStarted_Previews: PreviewProvider
+{
+    static var previews: some View
+    {
         GetStarted()
     }
 }
