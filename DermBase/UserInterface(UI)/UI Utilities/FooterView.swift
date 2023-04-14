@@ -34,6 +34,7 @@ struct FooterView: View {
                 VStack
                 {
                     Image(systemName: "person")
+                    Text("Settings")
                         .fontWeight(.regular)
                 }
             }
