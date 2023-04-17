@@ -7,13 +7,17 @@
 
 import SwiftUI
 
-struct FavoritesView: View {
+struct FavoritesView: View
+{
     @State private var searchText: String = ""
     @State private var selectedCategory: String = "All"
     
-    var body: some View {
-        NavigationView {
-            VStack {
+    var body: some View
+    {
+        NavigationView
+        {
+            VStack
+            {
                 CustomNavigationBar(title: "Favorites", showBackButton: false)
                 {
                     
@@ -31,14 +35,15 @@ struct FavoritesView: View {
                 }
                 .background(Color.white)
             }
-            
         }
         .navigationBarBackButtonHidden()
     }
 }
 
-struct FavoritesView_Previews: PreviewProvider {
-    static var previews: some View {
+struct FavoritesView_Previews: PreviewProvider
+{
+    static var previews: some View
+    {
         FavoritesView()
     }
 }

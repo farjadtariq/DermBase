@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct SearchBar: View {
+struct SearchBar: View
+{
     @Binding var text: String
     
-    var body: some View {
+    var body: some View
+    {
         TextField("Search", text: $text)
             .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
             .background(Color(.systemGray6))

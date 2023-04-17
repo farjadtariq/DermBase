@@ -7,18 +7,19 @@
 
 import SwiftUI
 
-struct DermButton: View {
-    
+struct DermButton: View
+{
     var title: String
     
-    var body: some View {
+    var body: some View
+    {
         Text(title)
             .frame(width: 200, height: 50)
             .background(Color(hex: "E37825"))
             .foregroundColor(Color(hex: "1C3968"))
             .font(.system(size: 20, weight: .semibold, design: .default))
             .buttonStyle(.bordered)
-            .cornerRadius(20)
+            .cornerRadius(10)
             .padding(.horizontal, 50)
     }
 }

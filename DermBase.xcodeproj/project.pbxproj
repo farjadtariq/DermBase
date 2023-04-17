@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C3218AFD29E858B600AA2C27 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3218AFC29E858B600AA2C27 /* CustomNavigationBar.swift */; };
-		C374F81C29DDEB9A00F856CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C374F81B29DDEB9900F856CA /* GoogleService-Info.plist */; };
+		C34B766A29ED98CD002AADB5 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34B766929ED98CD002AADB5 /* EmailValidation.swift */; };
+		C34B766D29ED991D002AADB5 /* PasswordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34B766C29ED991D002AADB5 /* PasswordValidation.swift */; };
+		C34B766F29ED9FAA002AADB5 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34B766E29ED9FAA002AADB5 /* AppViewModel.swift */; };
 		C3B6E2F929D91C3F00A4AFAC /* DermBaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E2F829D91C3F00A4AFAC /* DermBaseApp.swift */; };
 		C3B6E2FB29D91C3F00A4AFAC /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E2FA29D91C3F00A4AFAC /* GetStartedView.swift */; };
 		C3B6E2FD29D91C4200A4AFAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B6E2FC29D91C4200A4AFAC /* Assets.xcassets */; };
@@ -21,6 +23,9 @@
 		C3E5A8A129E9CF2F0020D8D7 /* CategoryMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5A8A029E9CF2F0020D8D7 /* CategoryMenu.swift */; };
 		C3E5A8A329E9CF6C0020D8D7 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5A8A229E9CF6C0020D8D7 /* SearchBar.swift */; };
 		C3E5A8A529E9CFB10020D8D7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5A8A429E9CFB10020D8D7 /* SettingsView.swift */; };
+		C3E5A8A829EC9E930020D8D7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C3E5A8A729EC9E930020D8D7 /* FirebaseAuth */; };
+		C3E5A8AA29EC9E930020D8D7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C3E5A8A929EC9E930020D8D7 /* FirebaseFirestore */; };
+		C3E5A8AC29ECA25A0020D8D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3E5A8AB29ECA2590020D8D7 /* GoogleService-Info.plist */; };
 		C3F0EE0E29DFA96A008A6B66 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F0EE0D29DFA96A008A6B66 /* Color+Hex.swift */; };
 		C3F0EE1229E0A6A9008A6B66 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F0EE1129E0A6A9008A6B66 /* LoginView.swift */; };
 		C3F0EE1429E0A731008A6B66 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F0EE1329E0A731008A6B66 /* RegistrationView.swift */; };
@@ -47,7 +52,9 @@
 
 /* Begin PBXFileReference section */
 		C3218AFC29E858B600AA2C27 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
-		C374F81B29DDEB9900F856CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C34B766929ED98CD002AADB5 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
+		C34B766C29ED991D002AADB5 /* PasswordValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidation.swift; sourceTree = "<group>"; };
+		C34B766E29ED9FAA002AADB5 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		C3B6E2F529D91C3F00A4AFAC /* DermBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DermBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B6E2F829D91C3F00A4AFAC /* DermBaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermBaseApp.swift; sourceTree = "<group>"; };
 		C3B6E2FA29D91C3F00A4AFAC /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
@@ -63,6 +70,7 @@
 		C3E5A8A029E9CF2F0020D8D7 /* CategoryMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMenu.swift; sourceTree = "<group>"; };
 		C3E5A8A229E9CF6C0020D8D7 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		C3E5A8A429E9CFB10020D8D7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C3E5A8AB29ECA2590020D8D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3F0EE0D29DFA96A008A6B66 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		C3F0EE1129E0A6A9008A6B66 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C3F0EE1329E0A731008A6B66 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -75,6 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3E5A8A829EC9E930020D8D7 /* FirebaseAuth in Frameworks */,
+				C3E5A8AA29EC9E930020D8D7 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +122,9 @@
 		C374F81929DDDE9700F856CA /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
+				C34B766E29ED9FAA002AADB5 /* AppViewModel.swift */,
+				C34B766C29ED991D002AADB5 /* PasswordValidation.swift */,
+				C34B766929ED98CD002AADB5 /* EmailValidation.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -126,6 +139,7 @@
 		C3B6E2EC29D91C3F00A4AFAC = {
 			isa = PBXGroup;
 			children = (
+				C3E5A8AB29ECA2590020D8D7 /* GoogleService-Info.plist */,
 				C3B6E2F729D91C3F00A4AFAC /* DermBase */,
 				C3B6E30829D91C4300A4AFAC /* DermBaseTests */,
 				C3B6E31229D91C4300A4AFAC /* DermBaseUITests */,
@@ -151,7 +165,6 @@
 				C374F81929DDDE9700F856CA /* Business Logic */,
 				C374F81A29DDDEB700F856CA /* Data Storage */,
 				C3B6E2FC29D91C4200A4AFAC /* Assets.xcassets */,
-				C374F81B29DDEB9900F856CA /* GoogleService-Info.plist */,
 				C3B6E2FE29D91C4200A4AFAC /* Preview Content */,
 			);
 			path = DermBase;
@@ -212,6 +225,8 @@
 			);
 			name = DermBase;
 			packageProductDependencies = (
+				C3E5A8A729EC9E930020D8D7 /* FirebaseAuth */,
+				C3E5A8A929EC9E930020D8D7 /* FirebaseFirestore */,
 			);
 			productName = DermBase;
 			productReference = C3B6E2F529D91C3F00A4AFAC /* DermBase.app */;
@@ -286,6 +301,7 @@
 			);
 			mainGroup = C3B6E2EC29D91C3F00A4AFAC;
 			packageReferences = (
+				C3E5A8A629EC9E930020D8D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = C3B6E2F629D91C3F00A4AFAC /* Products */;
 			projectDirPath = "";
@@ -304,8 +320,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3B6E30029D91C4200A4AFAC /* Preview Assets.xcassets in Resources */,
+				C3E5A8AC29ECA25A0020D8D7 /* GoogleService-Info.plist in Resources */,
 				C3B6E2FD29D91C4200A4AFAC /* Assets.xcassets in Resources */,
-				C374F81C29DDEB9A00F856CA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,11 +351,14 @@
 				C3F0EE0E29DFA96A008A6B66 /* Color+Hex.swift in Sources */,
 				C3E5A89F29E9CEEA0020D8D7 /* FooterView.swift in Sources */,
 				C3B6E2FB29D91C3F00A4AFAC /* GetStartedView.swift in Sources */,
+				C34B766A29ED98CD002AADB5 /* EmailValidation.swift in Sources */,
 				C3E5A8A329E9CF6C0020D8D7 /* SearchBar.swift in Sources */,
 				C3E5A8A129E9CF2F0020D8D7 /* CategoryMenu.swift in Sources */,
 				C3218AFD29E858B600AA2C27 /* CustomNavigationBar.swift in Sources */,
 				C3B6E2F929D91C3F00A4AFAC /* DermBaseApp.swift in Sources */,
+				C34B766F29ED9FAA002AADB5 /* AppViewModel.swift in Sources */,
 				C3F0EE1429E0A731008A6B66 /* RegistrationView.swift in Sources */,
+				C34B766D29ED991D002AADB5 /* PasswordValidation.swift in Sources */,
 				C3F0EE1629E0F6D1008A6B66 /* DermButton.swift in Sources */,
 				C3E5A89D29E9CECB0020D8D7 /* FavoritesView.swift in Sources */,
 				C3E5A8A529E9CFB10020D8D7 /* SettingsView.swift in Sources */,
@@ -667,6 +686,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C3E5A8A629EC9E930020D8D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C3E5A8A729EC9E930020D8D7 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3E5A8A629EC9E930020D8D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		C3E5A8A929EC9E930020D8D7 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3E5A8A629EC9E930020D8D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C3B6E2ED29D91C3F00A4AFAC /* Project object */;
 }

@@ -7,13 +7,17 @@
 
 import SwiftUI
 
-struct MedicationsView: View {
+struct MedicationsView: View
+{
     @State private var searchText: String = ""
     @State private var selectedCategory: String = "All"
     
-    var body: some View {
-        NavigationView {
-            VStack {
+    var body: some View
+    {
+        NavigationView
+        {
+            VStack
+            {
                 CustomNavigationBar(title: "Medications", showBackButton: false)
                 {
                     
@@ -31,7 +35,6 @@ struct MedicationsView: View {
                 }
                 .background(Color.white)
             }
-            
         }
         .navigationBarBackButtonHidden()
     }

@@ -8,7 +8,8 @@
 
 import SwiftUI
 
-struct CustomNavigationBar<Content: View>: View {
+struct CustomNavigationBar<Content: View>: View
+{
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.scenePhase) private var scenePhase
 
@@ -16,20 +17,26 @@ struct CustomNavigationBar<Content: View>: View {
     let showBackButton: Bool
     let content: Content
     
-    init(title: String, showBackButton: Bool = true, @ViewBuilder content: () -> Content) {
+    init(title: String, showBackButton: Bool = true, @ViewBuilder content: () -> Content)
+    {
         self.title = title
         self.showBackButton = showBackButton
         self.content = content()
     }
     
-    var body: some View {
-        ZStack {
+    var body: some View
+    {
+        ZStack
+        {
             Color(hex: "1C3968")
                 .ignoresSafeArea(.all)
             
-            VStack {
-                HStack {
-                    if showBackButton {
+            VStack
+            {
+                HStack
+                {
+                    if showBackButton
+                    {
                         Button(action: {
                             presentationMode.wrappedValue.dismiss()
                         }, label: {
