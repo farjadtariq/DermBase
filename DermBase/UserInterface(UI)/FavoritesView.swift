@@ -14,29 +14,27 @@ struct FavoritesView: View
     
     var body: some View
     {
-        NavigationView
+        CustomNavigationBar(title: "Favorites", showBackButton: false)
         {
+          
             VStack
             {
-                CustomNavigationBar(title: "Favorites", showBackButton: false)
-                {
-                    
-                    SearchBar(text: $searchText)
-                    
-                    //CategoryMenu(selectedCategory: $selectedCategory)
-                    
-                    //MedicationList(searchText: searchText, selectedCategory: selectedCategory)
-                    
-                    Spacer()
-                    
-                    FooterView()
-                        .background(Color("1C3968"))
-                        .edgesIgnoringSafeArea(.bottom)
-                }
-                .background(Color.white)
+                SearchBar(text: $searchText)
+                
+                //CategoryMenu(selectedCategory: $selectedCategory)
+                
+                //MedicationList(searchText: searchText, selectedCategory: selectedCategory)
+                Spacer()
+                
             }
+            .background(Color.white)
+            Spacer()
+            FooterView()
+                .background(Color(hex: "1C3968"))
+            
         }
         .navigationBarBackButtonHidden()
+
     }
 }
 

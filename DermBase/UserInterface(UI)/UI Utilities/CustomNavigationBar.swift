@@ -53,7 +53,7 @@ struct CustomNavigationBar<Content: View>: View
                             .foregroundColor(Color(hex: "E37825"))
                             .font(.title)
                             .bold()
-                            .padding(.trailing, 15)
+                            .padding(.trailing, 20)
                     }
                     else
                     {

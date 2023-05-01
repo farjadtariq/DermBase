@@ -12,6 +12,8 @@ import Firebase
 @main
 struct DermBaseApp: App
 {
+    @StateObject var viewModel = AppViewModel()
+    @StateObject var medViewModel = MedicationsViewModel()
 
     init()
     {
@@ -22,10 +24,16 @@ struct DermBaseApp: App
     {
         WindowGroup
         {
-            let viewModel = AppViewModel()
-            
-            GetStarted()
-                .environmentObject(viewModel)
+            NavigationView
+            {
+                
+                GetStarted()
+       
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarBackButtonHidden()
+            .environmentObject(viewModel)
+            .environmentObject(medViewModel)
         }
     }
 }

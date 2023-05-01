@@ -12,38 +12,35 @@ struct GetStarted: View
 {
     var body: some View
     {
-        NavigationView
+        ZStack
         {
-            ZStack
+            Color(hex: "1C3968")
+                .edgesIgnoringSafeArea(.all)
+            
+            //VStack holding the Logo, Welcome text and Get Started Button
+            VStack
             {
-                Color(hex: "1C3968")
-                    .edgesIgnoringSafeArea(.all)
+                Spacer()
+                Image("Logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 390, height: 370)
+                    .padding(.bottom, 50)
+                    .padding(.top, -100)
                 
-                //VStack holding the Logo, Welcome text and Get Started Button
-                VStack
+                Text("Welcome to DermBase")
+                    .foregroundColor(.white)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .padding(.top, -100)
+                
+                
+                NavigationLink(destination: LoginView())
                 {
-                    Spacer()
-                    Image("Logo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 390, height: 370)
-                        .padding(.bottom, 50)
-                        .padding(.top, -100)
-                    
-                    Text("Welcome to DermBase")
-                        .foregroundColor(.white)
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .padding(.top, -100)
-                    
-                    
-                    NavigationLink(destination: LoginView())
-                    {
-                        DermButton(title: "Get Started")
-                    }
-                    
-                    Spacer()
+                    DermButton(title: "Get Started")
                 }
+                
+                Spacer()
             }
         }
         .navigationBarBackButtonHidden()

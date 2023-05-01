@@ -8,9 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		C3218AFD29E858B600AA2C27 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3218AFC29E858B600AA2C27 /* CustomNavigationBar.swift */; };
+		C32CA47B29FAFA1200104BE3 /* MedCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CA47A29FAFA1200104BE3 /* MedCategories.swift */; };
+		C32CA47D29FC522600104BE3 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CA47C29FC522600104BE3 /* SafariView.swift */; };
 		C34B766A29ED98CD002AADB5 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34B766929ED98CD002AADB5 /* EmailValidation.swift */; };
 		C34B766D29ED991D002AADB5 /* PasswordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34B766C29ED991D002AADB5 /* PasswordValidation.swift */; };
-		C34B766F29ED9FAA002AADB5 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34B766E29ED9FAA002AADB5 /* AppViewModel.swift */; };
+		C34B766F29ED9FAA002AADB5 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34B766E29ED9FAA002AADB5 /* AuthViewModel.swift */; };
+		C35C826B29EEC528003AB5C1 /* PopUpNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35C826A29EEC528003AB5C1 /* PopUpNotification.swift */; };
+		C35C826D29F122CF003AB5C1 /* MedicationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35C826C29F122CF003AB5C1 /* MedicationsViewModel.swift */; };
+		C35C826F29F127DB003AB5C1 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35C826E29F127DB003AB5C1 /* Medication.swift */; };
+		C35C827129F12D62003AB5C1 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35C827029F12D62003AB5C1 /* FirestoreManager.swift */; };
+		C35C827429F12E13003AB5C1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C35C827329F12E13003AB5C1 /* FirebaseFirestoreSwift */; };
+		C35C827729F9DE60003AB5C1 /* MedicationsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35C827629F9DE5F003AB5C1 /* MedicationsDetailView.swift */; };
 		C3B6E2F929D91C3F00A4AFAC /* DermBaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E2F829D91C3F00A4AFAC /* DermBaseApp.swift */; };
 		C3B6E2FB29D91C3F00A4AFAC /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E2FA29D91C3F00A4AFAC /* GetStartedView.swift */; };
 		C3B6E2FD29D91C4200A4AFAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B6E2FC29D91C4200A4AFAC /* Assets.xcassets */; };
@@ -18,6 +26,12 @@
 		C3B6E30A29D91C4300A4AFAC /* DermBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E30929D91C4300A4AFAC /* DermBaseTests.swift */; };
 		C3B6E31429D91C4300A4AFAC /* DermBaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E31329D91C4300A4AFAC /* DermBaseUITests.swift */; };
 		C3B6E31629D91C4300A4AFAC /* DermBaseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E31529D91C4300A4AFAC /* DermBaseUITestsLaunchTests.swift */; };
+		C3D938F129FDD6440056C26D /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D938F029FDD6440056C26D /* CacheManager.swift */; };
+		C3D938F329FDE4AE0056C26D /* FirestoreListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D938F229FDE4AE0056C26D /* FirestoreListener.swift */; };
+		C3D938F52A00111F0056C26D /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D938F42A00111F0056C26D /* PasswordView.swift */; };
+		C3D938F72A0035CA0056C26D /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D938F62A0035CA0056C26D /* PrivacyPolicyView.swift */; };
+		C3D938F92A0035DA0056C26D /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D938F82A0035DA0056C26D /* TermsOfServiceView.swift */; };
+		C3D938FB2A00360C0056C26D /* AccountInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D938FA2A00360C0056C26D /* AccountInformationView.swift */; };
 		C3E5A89D29E9CECB0020D8D7 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5A89C29E9CECB0020D8D7 /* FavoritesView.swift */; };
 		C3E5A89F29E9CEEA0020D8D7 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5A89E29E9CEEA0020D8D7 /* FooterView.swift */; };
 		C3E5A8A129E9CF2F0020D8D7 /* CategoryMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E5A8A029E9CF2F0020D8D7 /* CategoryMenu.swift */; };
@@ -52,9 +66,16 @@
 
 /* Begin PBXFileReference section */
 		C3218AFC29E858B600AA2C27 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		C32CA47A29FAFA1200104BE3 /* MedCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedCategories.swift; sourceTree = "<group>"; };
+		C32CA47C29FC522600104BE3 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		C34B766929ED98CD002AADB5 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		C34B766C29ED991D002AADB5 /* PasswordValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidation.swift; sourceTree = "<group>"; };
-		C34B766E29ED9FAA002AADB5 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		C34B766E29ED9FAA002AADB5 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		C35C826A29EEC528003AB5C1 /* PopUpNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpNotification.swift; sourceTree = "<group>"; };
+		C35C826C29F122CF003AB5C1 /* MedicationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsViewModel.swift; sourceTree = "<group>"; };
+		C35C826E29F127DB003AB5C1 /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
+		C35C827029F12D62003AB5C1 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		C35C827629F9DE5F003AB5C1 /* MedicationsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsDetailView.swift; sourceTree = "<group>"; };
 		C3B6E2F529D91C3F00A4AFAC /* DermBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DermBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B6E2F829D91C3F00A4AFAC /* DermBaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermBaseApp.swift; sourceTree = "<group>"; };
 		C3B6E2FA29D91C3F00A4AFAC /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
@@ -65,6 +86,12 @@
 		C3B6E30F29D91C4300A4AFAC /* DermBaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DermBaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B6E31329D91C4300A4AFAC /* DermBaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermBaseUITests.swift; sourceTree = "<group>"; };
 		C3B6E31529D91C4300A4AFAC /* DermBaseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermBaseUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C3D938F029FDD6440056C26D /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		C3D938F229FDE4AE0056C26D /* FirestoreListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreListener.swift; sourceTree = "<group>"; };
+		C3D938F42A00111F0056C26D /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		C3D938F62A0035CA0056C26D /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		C3D938F82A0035DA0056C26D /* TermsOfServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceView.swift; sourceTree = "<group>"; };
+		C3D938FA2A00360C0056C26D /* AccountInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInformationView.swift; sourceTree = "<group>"; };
 		C3E5A89C29E9CECB0020D8D7 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		C3E5A89E29E9CEEA0020D8D7 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		C3E5A8A029E9CF2F0020D8D7 /* CategoryMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMenu.swift; sourceTree = "<group>"; };
@@ -85,6 +112,7 @@
 			files = (
 				C3E5A8A829EC9E930020D8D7 /* FirebaseAuth in Frameworks */,
 				C3E5A8AA29EC9E930020D8D7 /* FirebaseFirestore in Frameworks */,
+				C35C827429F12E13003AB5C1 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +133,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C35C827229F12E13003AB5C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C35C827529F135F6003AB5C1 /* BL Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C34B766C29ED991D002AADB5 /* PasswordValidation.swift */,
+				C34B766929ED98CD002AADB5 /* EmailValidation.swift */,
+				C32CA47C29FC522600104BE3 /* SafariView.swift */,
+			);
+			path = "BL Utilities";
+			sourceTree = "<group>";
+		};
 		C374F81829DDDE5700F856CA /* UserInterface(UI) */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +160,10 @@
 				C3F0EE1729E1546A008A6B66 /* MedicationsView.swift */,
 				C3E5A89C29E9CECB0020D8D7 /* FavoritesView.swift */,
 				C3E5A8A429E9CFB10020D8D7 /* SettingsView.swift */,
+				C35C827629F9DE5F003AB5C1 /* MedicationsDetailView.swift */,
+				C3D938F62A0035CA0056C26D /* PrivacyPolicyView.swift */,
+				C3D938F82A0035DA0056C26D /* TermsOfServiceView.swift */,
+				C3D938FA2A00360C0056C26D /* AccountInformationView.swift */,
 			);
 			path = "UserInterface(UI)";
 			sourceTree = "<group>";
@@ -122,18 +171,23 @@
 		C374F81929DDDE9700F856CA /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
-				C34B766E29ED9FAA002AADB5 /* AppViewModel.swift */,
-				C34B766C29ED991D002AADB5 /* PasswordValidation.swift */,
-				C34B766929ED98CD002AADB5 /* EmailValidation.swift */,
+				C35C827529F135F6003AB5C1 /* BL Utilities */,
+				C34B766E29ED9FAA002AADB5 /* AuthViewModel.swift */,
+				C3D938F029FDD6440056C26D /* CacheManager.swift */,
+				C3D938F229FDE4AE0056C26D /* FirestoreListener.swift */,
+				C35C826C29F122CF003AB5C1 /* MedicationsViewModel.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
 		};
-		C374F81A29DDDEB700F856CA /* Data Storage */ = {
+		C374F81A29DDDEB700F856CA /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				C32CA47A29FAFA1200104BE3 /* MedCategories.swift */,
+				C35C826E29F127DB003AB5C1 /* Medication.swift */,
+				C35C827029F12D62003AB5C1 /* FirestoreManager.swift */,
 			);
-			path = "Data Storage";
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		C3B6E2EC29D91C3F00A4AFAC = {
@@ -144,6 +198,7 @@
 				C3B6E30829D91C4300A4AFAC /* DermBaseTests */,
 				C3B6E31229D91C4300A4AFAC /* DermBaseUITests */,
 				C3B6E2F629D91C3F00A4AFAC /* Products */,
+				C35C827229F12E13003AB5C1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,7 +218,7 @@
 				C3B6E2F829D91C3F00A4AFAC /* DermBaseApp.swift */,
 				C374F81829DDDE5700F856CA /* UserInterface(UI) */,
 				C374F81929DDDE9700F856CA /* Business Logic */,
-				C374F81A29DDDEB700F856CA /* Data Storage */,
+				C374F81A29DDDEB700F856CA /* Persistence */,
 				C3B6E2FC29D91C4200A4AFAC /* Assets.xcassets */,
 				C3B6E2FE29D91C4200A4AFAC /* Preview Content */,
 			);
@@ -204,6 +259,8 @@
 				C3E5A89E29E9CEEA0020D8D7 /* FooterView.swift */,
 				C3E5A8A029E9CF2F0020D8D7 /* CategoryMenu.swift */,
 				C3E5A8A229E9CF6C0020D8D7 /* SearchBar.swift */,
+				C35C826A29EEC528003AB5C1 /* PopUpNotification.swift */,
+				C3D938F42A00111F0056C26D /* PasswordView.swift */,
 			);
 			path = "UI Utilities";
 			sourceTree = "<group>";
@@ -227,6 +284,7 @@
 			packageProductDependencies = (
 				C3E5A8A729EC9E930020D8D7 /* FirebaseAuth */,
 				C3E5A8A929EC9E930020D8D7 /* FirebaseFirestore */,
+				C35C827329F12E13003AB5C1 /* FirebaseFirestoreSwift */,
 			);
 			productName = DermBase;
 			productReference = C3B6E2F529D91C3F00A4AFAC /* DermBase.app */;
@@ -348,15 +406,28 @@
 			files = (
 				C3F0EE1829E1546A008A6B66 /* MedicationsView.swift in Sources */,
 				C3F0EE1229E0A6A9008A6B66 /* LoginView.swift in Sources */,
+				C35C827729F9DE60003AB5C1 /* MedicationsDetailView.swift in Sources */,
+				C3D938F92A0035DA0056C26D /* TermsOfServiceView.swift in Sources */,
+				C3D938F72A0035CA0056C26D /* PrivacyPolicyView.swift in Sources */,
 				C3F0EE0E29DFA96A008A6B66 /* Color+Hex.swift in Sources */,
+				C3D938F129FDD6440056C26D /* CacheManager.swift in Sources */,
 				C3E5A89F29E9CEEA0020D8D7 /* FooterView.swift in Sources */,
 				C3B6E2FB29D91C3F00A4AFAC /* GetStartedView.swift in Sources */,
 				C34B766A29ED98CD002AADB5 /* EmailValidation.swift in Sources */,
 				C3E5A8A329E9CF6C0020D8D7 /* SearchBar.swift in Sources */,
+				C35C826F29F127DB003AB5C1 /* Medication.swift in Sources */,
+				C35C826D29F122CF003AB5C1 /* MedicationsViewModel.swift in Sources */,
+				C3D938FB2A00360C0056C26D /* AccountInformationView.swift in Sources */,
 				C3E5A8A129E9CF2F0020D8D7 /* CategoryMenu.swift in Sources */,
+				C35C826B29EEC528003AB5C1 /* PopUpNotification.swift in Sources */,
 				C3218AFD29E858B600AA2C27 /* CustomNavigationBar.swift in Sources */,
+				C32CA47D29FC522600104BE3 /* SafariView.swift in Sources */,
+				C3D938F329FDE4AE0056C26D /* FirestoreListener.swift in Sources */,
+				C35C827129F12D62003AB5C1 /* FirestoreManager.swift in Sources */,
+				C3D938F52A00111F0056C26D /* PasswordView.swift in Sources */,
+				C32CA47B29FAFA1200104BE3 /* MedCategories.swift in Sources */,
 				C3B6E2F929D91C3F00A4AFAC /* DermBaseApp.swift in Sources */,
-				C34B766F29ED9FAA002AADB5 /* AppViewModel.swift in Sources */,
+				C34B766F29ED9FAA002AADB5 /* AuthViewModel.swift in Sources */,
 				C3F0EE1429E0A731008A6B66 /* RegistrationView.swift in Sources */,
 				C34B766D29ED991D002AADB5 /* PasswordValidation.swift in Sources */,
 				C3F0EE1629E0F6D1008A6B66 /* DermButton.swift in Sources */,
@@ -699,6 +770,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C35C827329F12E13003AB5C1 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3E5A8A629EC9E930020D8D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
 		C3E5A8A729EC9E930020D8D7 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C3E5A8A629EC9E930020D8D7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

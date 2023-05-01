@@ -10,30 +10,30 @@ import FirebaseAuth
 
 struct RegistrationView: View
 {
+    @State private var firstName: String = ""
+    @State private var lastName: String = ""
     @State private var email: String = ""
+    @State private var gender: String = ""
     @State private var password: String = ""
+    @State private var confirmPassword: String = ""
+    @State private var showPassword: Bool = false
+    @State private var showConfirmPassword: Bool = false
     
     @EnvironmentObject var viewModel: AppViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View
     {
-        NavigationView
-        {
-            if viewModel.signedIn
-            {
-                LoginView()
+        content
+            .navigationBarBackButtonHidden()
+            .alert(isPresented: $viewModel.signedUp) {
+                Alert(title: Text("Sign Up Successful"),
+                      message: Text("Please verify your email before signing in."),
+                      dismissButton: .default(Text("OK")) {
+                    viewModel.signedUp = false
+                    self.presentationMode.wrappedValue.dismiss()
+                })
             }
-            else
-            {
-                content
-            }
-        }
-        .navigationBarBackButtonHidden()
-        .onAppear
-        {
-            viewModel.signedIn = viewModel.isSignedIn
-        }
-        
     }
     
     var content: some View
@@ -69,6 +69,39 @@ struct RegistrationView: View
                         }
                     }
                     
+                    HStack {
+                        TextField("First Name", text: $firstName)
+                            .padding()
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
+                        TextField("Last Name", text: $lastName)
+                            .padding()
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
+                    }
+                    
+                    Menu {
+                        Button(action: { gender = "Male" }) {
+                            Text("Male")
+                        }
+                        Button(action: { gender = "Female" }) {
+                            Text("Female")
+                        }
+                        Button(action: { gender = "I do not wish to identify" }) {
+                            Text("I do not wish to identify")
+                        }
+                    } label: {
+                        HStack {
+                            Text(gender.isEmpty ? "Select Gender" : gender)
+                                .foregroundColor(.gray)
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(Color(hex: "1C3968"))
+                        }
+                    }
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
+                    
                     HStack
                     {
                         Image(systemName: "mail")
@@ -90,7 +123,7 @@ struct RegistrationView: View
                     HStack
                     {
                         Image(systemName: "lock")
-                        SecureField("Password", text: $password)
+                        PasswordView(title: "Password", password: $password, showPassword: $showPassword)
                         
                         Spacer()
                         
@@ -105,17 +138,41 @@ struct RegistrationView: View
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)
                     
+                    HStack {
+                        Image(systemName: "lock")
+                        PasswordView(title: "Confirm Password", password: $confirmPassword, showPassword: $showConfirmPassword)
+                        //SecureField("Confirm Password", text: $confirmPassword)
+                        
+                        Spacer()
+                        
+                        if (confirmPassword.count != 0) {
+                            Image(systemName: confirmPassword == password ? "checkmark" : "xmark")
+                                .fontWeight(.bold)
+                                .foregroundColor(confirmPassword == password ? .green : .red)
+                        }
+                    }
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
+                    
                     Button
                     {
                         guard !email.isEmpty, !password.isEmpty else
                         {
                             return
                         }
-                        viewModel.signUp(email: email, password: password)
+                        viewModel.signUp(email: email, password: password, firstName: firstName, lastName: lastName, gender: gender)
+                        {
+                            //Handles successful sign up, if successful navigates to Login Page for login
+                            error in
+                            if let error = error
+                            {
+                                print("Sign Up Error: \(error.localizedDescription)")
+                            }
+                        }
                     } label: {
                         DermButton(title: "Sign Up")
                     }
-                    
                     
                 }
                 .padding()

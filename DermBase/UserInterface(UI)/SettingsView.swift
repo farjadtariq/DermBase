@@ -13,13 +13,33 @@ struct SettingsView: View
     
     var body: some View
     {
-        NavigationView
+        CustomNavigationBar(title: "Settings")
         {
-            CustomNavigationBar(title: "Settings")
+            ZStack
             {
+                Color.white
+                
                 VStack
                 {
-                    Spacer()
+                    List {
+                        NavigationLink(destination: AccountInformationView()) {
+                            Text("Account Information")
+                                .font(.headline)
+                        }
+                        
+                        NavigationLink(destination: PrivacyPolicyView()) {
+                            Text("Privacy Policy")
+                                .font(.headline)
+                        }
+                        
+                        NavigationLink(destination: TermsOfServiceView()) {
+                            Text("Terms of Service")
+                                .font(.headline)
+                        }
+                        
+                    }
+                    .listStyle(PlainListStyle())
+                    
                     Spacer()
                     
                     Button
@@ -30,8 +50,12 @@ struct SettingsView: View
                     {
                         DermButton(title: "Log Out")
                     }
+                    
                 }
+                .padding(.bottom)
+                .padding(.bottom)
             }
+            .ignoresSafeArea(.all)
         }
         .navigationBarBackButtonHidden()
     }

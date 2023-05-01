@@ -12,26 +12,35 @@ struct LoginView: View
 {
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var showPassword: Bool = false
     
     @EnvironmentObject var viewModel: AppViewModel
+    @EnvironmentObject var medViewModel: MedicationsViewModel
     
     var body: some View
     {
-        NavigationView
+        if viewModel.signedIn
         {
-            if viewModel.signedIn
-            {
-                MedicationsView()
-            }
-            else
-            {
-                content
-            }
+            MedicationsView()
+                .environmentObject(medViewModel)
         }
-        .navigationBarBackButtonHidden()
-        .onAppear
+        else
         {
-            viewModel.signedIn = viewModel.isSignedIn
+            content
+                .navigationBarBackButtonHidden()
+                .alert(isPresented: $viewModel.emailNotVerified) {
+                    Alert(title: Text("Email not verified"),
+                          message: Text("Please verify your email before signing in."),
+                          dismissButton: .default(Text("OK")) {
+                        viewModel.emailNotVerified = false
+                    })
+                }
+                .onAppear {
+                    NotificationCenter.default.addObserver(viewModel, selector: #selector(AppViewModel.handleAppDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+                }
+                .onDisappear {
+                    NotificationCenter.default.removeObserver(viewModel, name: UIApplication.didBecomeActiveNotification, object: nil)
+                }
         }
     }
     
@@ -88,7 +97,7 @@ struct LoginView: View
                     HStack
                     {
                         Image(systemName: "lock")
-                        SecureField("Password", text: $password)
+                        PasswordView(title: "Password", password: $password, showPassword: $showPassword)
                         
                         Spacer()
                         
@@ -114,8 +123,10 @@ struct LoginView: View
                     } label: {
                         DermButton(title: "Sign In")
                     }
-                    
-                    
+                    .onSubmit {
+                        viewModel.signedIn = viewModel.isSignedIn
+                    }
+
                 }
                 .padding()
                 Spacer()
@@ -124,7 +135,10 @@ struct LoginView: View
             .edgesIgnoringSafeArea(.top)
         }
     }
+ 
 }
+
+
 
 
 struct LoginView_Previews: PreviewProvider
