@@ -26,10 +26,10 @@
 		C3B6E31429D91C4300A4AFAC /* DermBaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E31329D91C4300A4AFAC /* DermBaseUITests.swift */; };
 		C3B6E31629D91C4300A4AFAC /* DermBaseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E31529D91C4300A4AFAC /* DermBaseUITestsLaunchTests.swift */; };
 		C3B9D48A2A01B05D0003A411 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B9D4892A01B05D0003A411 /* AuthenticationManager.swift */; };
-		C3B9D48C2A0204930003A411 /* MedDetailUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B9D48B2A0204930003A411 /* MedDetailUtil.swift */; };
+		C3B9D48E2A02D8580003A411 /* AuthenticationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B9D48D2A02D8580003A411 /* AuthenticationViews.swift */; };
+		C3B9D4902A02D87E0003A411 /* MedDetailsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B9D48F2A02D87E0003A411 /* MedDetailsUtil.swift */; };
 		C3D938F129FDD6440056C26D /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D938F029FDD6440056C26D /* CacheManager.swift */; };
 		C3D938F329FDE4AE0056C26D /* FirestoreListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D938F229FDE4AE0056C26D /* FirestoreListener.swift */; };
-		C3D938F52A00111F0056C26D /* AuthenticationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D938F42A00111F0056C26D /* AuthenticationViews.swift */; };
 		C3D938F72A0035CA0056C26D /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D938F62A0035CA0056C26D /* PrivacyPolicyView.swift */; };
 		C3D938F92A0035DA0056C26D /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D938F82A0035DA0056C26D /* TermsOfServiceView.swift */; };
 		C3D938FB2A00360C0056C26D /* AccountInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D938FA2A00360C0056C26D /* AccountInformationView.swift */; };
@@ -86,10 +86,10 @@
 		C3B6E31329D91C4300A4AFAC /* DermBaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermBaseUITests.swift; sourceTree = "<group>"; };
 		C3B6E31529D91C4300A4AFAC /* DermBaseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermBaseUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C3B9D4892A01B05D0003A411 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
-		C3B9D48B2A0204930003A411 /* MedDetailUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedDetailUtil.swift; sourceTree = "<group>"; };
+		C3B9D48D2A02D8580003A411 /* AuthenticationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViews.swift; sourceTree = "<group>"; };
+		C3B9D48F2A02D87E0003A411 /* MedDetailsUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedDetailsUtil.swift; sourceTree = "<group>"; };
 		C3D938F029FDD6440056C26D /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		C3D938F229FDE4AE0056C26D /* FirestoreListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreListener.swift; sourceTree = "<group>"; };
-		C3D938F42A00111F0056C26D /* AuthenticationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViews.swift; sourceTree = "<group>"; };
 		C3D938F62A0035CA0056C26D /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		C3D938F82A0035DA0056C26D /* TermsOfServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceView.swift; sourceTree = "<group>"; };
 		C3D938FA2A00360C0056C26D /* AccountInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInformationView.swift; sourceTree = "<group>"; };
@@ -259,8 +259,8 @@
 				C3218AFC29E858B600AA2C27 /* CustomNavBar.swift */,
 				C3E5A89E29E9CEEA0020D8D7 /* FooterView.swift */,
 				C3E5A8A029E9CF2F0020D8D7 /* Search&CategoryBars.swift */,
-				C3D938F42A00111F0056C26D /* AuthenticationViews.swift */,
-				C3B9D48B2A0204930003A411 /* MedDetailUtil.swift */,
+				C3B9D48D2A02D8580003A411 /* AuthenticationViews.swift */,
+				C3B9D48F2A02D87E0003A411 /* MedDetailsUtil.swift */,
 			);
 			path = "UI Utilities";
 			sourceTree = "<group>";
@@ -412,6 +412,7 @@
 				C3D938F72A0035CA0056C26D /* PrivacyPolicyView.swift in Sources */,
 				C3F0EE0E29DFA96A008A6B66 /* HexColor.swift in Sources */,
 				C3D938F129FDD6440056C26D /* CacheManager.swift in Sources */,
+				C3B9D48E2A02D8580003A411 /* AuthenticationViews.swift in Sources */,
 				C3E5A89F29E9CEEA0020D8D7 /* FooterView.swift in Sources */,
 				C3B6E2FB29D91C3F00A4AFAC /* GetStartedView.swift in Sources */,
 				C34B766A29ED98CD002AADB5 /* EmailValidation.swift in Sources */,
@@ -420,15 +421,14 @@
 				C3D938FB2A00360C0056C26D /* AccountInformationView.swift in Sources */,
 				C3E5A8A129E9CF2F0020D8D7 /* Search&CategoryBars.swift in Sources */,
 				C3218AFD29E858B600AA2C27 /* CustomNavBar.swift in Sources */,
-				C3B9D48C2A0204930003A411 /* MedDetailUtil.swift in Sources */,
 				C32CA47D29FC522600104BE3 /* SafariView.swift in Sources */,
 				C3D938F329FDE4AE0056C26D /* FirestoreListener.swift in Sources */,
 				C35C827129F12D62003AB5C1 /* FirestoreManager.swift in Sources */,
-				C3D938F52A00111F0056C26D /* AuthenticationViews.swift in Sources */,
 				C32CA47B29FAFA1200104BE3 /* MedCategories.swift in Sources */,
 				C3B6E2F929D91C3F00A4AFAC /* DermBaseApp.swift in Sources */,
 				C34B766F29ED9FAA002AADB5 /* AuthViewModel.swift in Sources */,
 				C3F0EE1429E0A731008A6B66 /* RegistrationView.swift in Sources */,
+				C3B9D4902A02D87E0003A411 /* MedDetailsUtil.swift in Sources */,
 				C34B766D29ED991D002AADB5 /* PasswordValidation.swift in Sources */,
 				C3F0EE1629E0F6D1008A6B66 /* DermButton.swift in Sources */,
 				C3E5A89D29E9CECB0020D8D7 /* FavoritesView.swift in Sources */,
