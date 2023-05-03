@@ -13,6 +13,12 @@ struct SettingsView: View
     
     var body: some View
     {
+        content
+            .navigationBarBackButtonHidden()
+    }
+    
+    var content: some View
+    {
         CustomNavigationBar(title: "Settings")
         {
             ZStack
@@ -57,7 +63,6 @@ struct SettingsView: View
             }
             .ignoresSafeArea(.all)
         }
-        .navigationBarBackButtonHidden()
     }
 }
 

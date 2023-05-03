@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 import SafariServices
 
 struct MedicationsDetailView: View
@@ -13,7 +14,10 @@ struct MedicationsDetailView: View
     
     var medication: Medication
     var category: String
-    @State private var showSafariView = false
+    
+    @State private var isFavorite: Bool = false
+    @EnvironmentObject var viewModel: AppViewModel
+    @EnvironmentObject var medViewModel: MedicationsViewModel
     
     init(medication: Medication, category: String)
     {
@@ -22,6 +26,11 @@ struct MedicationsDetailView: View
     }
     
     var body: some View
+    {
+        content
+    }
+    
+    var content: some View
     {
         CustomNavigationBar(title: category)
         {
@@ -44,176 +53,18 @@ struct MedicationsDetailView: View
                             
                             Spacer()
                             
-                            Button
-                            {
-                                //action here
-                            }label: {
-                                Image(systemName: "star")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .foregroundColor(Color(hex: "E37825"))
-                            }
+                            FavoriteButton(isFavorite: $isFavorite, medicationID: medication.id)
+                                .environmentObject(viewModel)
+
                         }
                         
                         Divider()
                             .background(.gray)
                             .scaledToFit()
                         
-                        // VStacks for the details grouped to avoid clutter
-                        Group
-                        {
-                            VStack(alignment: .leading) {
-                                Text("Year Approved")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.yearApproved)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Generic")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.generic)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Indication")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.indication)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Indication Ages")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.indicationAges)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Mechanism of Action")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.mechanismOfAction)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Route")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.route)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Baseline Labs / Lab Monitoring")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.baselineLabs)
-                                    .font(.body)
-                            }
-                        }
-                        Group
-                        {
-                            
-                            VStack(alignment: .leading) {
-                                Text("Initiation Dosing")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.initiationDosing)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Maintenance Dosing")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.maintenanceDosing)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Dosing Adjustments")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.dosingAdjustments)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Recommended time frame to assess for initial therapeutic response in weeks")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.recommendedTimeFrame)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Side Effects")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.sideEffects)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Side Effects Abrev.")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.sideEffectsAbrev)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Contraindications / Cautions")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.contraindications)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Pharmacogenetics Studies")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.pharmacogeneticsStudies)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Metabolising Enzymes")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                Text(medication.metabolisingEnzymes)
-                                    .font(.body)
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                Text("Resources Used")
-                                    .font(.subheadline)
-                                    .foregroundColor(Color(hex: "E37825"))
-                                if let url = URL(string: medication.resourcesUsed), UIApplication.shared.canOpenURL(url)
-                                {
-                                    Link("\(url.absoluteString)", destination: url)
-                                        .font(.body)
-                                        .foregroundColor(Color.blue)
-                                        .sheet(isPresented: $showSafariView)
-                                        {
-                                            SafariView(url: url)
-                                        }
-                                }
-                                else
-                                {
-                                    Text("\(medication.resourcesUsed)")
-                                        .font(.body)
-                                }
-                            }
-                        }
+                        
+                        MedicationDetailsGroup1(medication: medication)
+                        MedicationDetailsGroup2(medication: medication)
                         
                     }
                     .padding()
@@ -235,6 +86,9 @@ struct MedicationsDetailView: View
           
         }
         .navigationBarBackButtonHidden()
+        .onAppear {
+            isFavorite = medViewModel.savedMedications.contains { $0.id == medication.id }
+        }
     }
 }
 

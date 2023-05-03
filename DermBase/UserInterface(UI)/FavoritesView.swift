@@ -12,18 +12,27 @@ struct FavoritesView: View
     @State private var searchText: String = ""
     @State private var selectedCategory: String = "All"
     
+    @EnvironmentObject var viewModel: AppViewModel
+    @EnvironmentObject var medViewModel: MedicationsViewModel
+    
     var body: some View
     {
         CustomNavigationBar(title: "Favorites", showBackButton: false)
         {
-          
             VStack
             {
-                SearchBar(text: $searchText)
+                SearchBar(text: $medViewModel.searchText)
                 
-                //CategoryMenu(selectedCategory: $selectedCategory)
+                CategoryPicker(selectedCategory: $medViewModel.selectedCategory)
                 
-                //MedicationList(searchText: searchText, selectedCategory: selectedCategory)
+                List(medViewModel.savedMedications, id: \.id) { medication in
+                    NavigationLink(destination: MedicationsDetailView(medication: medication, category: medication.category)) {
+                        Text(medication.trade)
+                    }
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                }
+                .listStyle(PlainListStyle())
+                .padding(.horizontal)
                 Spacer()
                 
             }
@@ -31,10 +40,8 @@ struct FavoritesView: View
             Spacer()
             FooterView()
                 .background(Color(hex: "1C3968"))
-            
         }
         .navigationBarBackButtonHidden()
-
     }
 }
 

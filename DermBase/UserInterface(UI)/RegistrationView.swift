@@ -36,151 +36,31 @@ struct RegistrationView: View
             }
     }
     
-    var content: some View
-    {
-        CustomNavigationBar(title: "Register")
-        {
-            VStack
-            {
-                VStack(spacing: 16)
-                {
-                    Image("LogoWBg")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.horizontal, 70)
-                    
-                    VStack
-                    {
-                        Text("Sign Up")
-                            .font(.title)
-                            .foregroundColor(Color(hex: "1C3968"))
-                        
-                        HStack
-                        {
-                            Text("Already have an account?")
-                                .foregroundColor(.gray)
-                            
-                            NavigationLink(destination: LoginView())
-                            {
-                                Text("Login")
-                                    .foregroundColor(Color(hex: "1C3968"))
-                            }
-                            
-                        }
-                    }
-                    
-                    HStack {
-                        TextField("First Name", text: $firstName)
-                            .padding()
-                            .background(Color.gray.opacity(0.2))
-                            .cornerRadius(10)
-                        TextField("Last Name", text: $lastName)
-                            .padding()
-                            .background(Color.gray.opacity(0.2))
-                            .cornerRadius(10)
-                    }
-                    
-                    Menu {
-                        Button(action: { gender = "Male" }) {
-                            Text("Male")
-                        }
-                        Button(action: { gender = "Female" }) {
-                            Text("Female")
-                        }
-                        Button(action: { gender = "I do not wish to identify" }) {
-                            Text("I do not wish to identify")
-                        }
-                    } label: {
-                        HStack {
-                            Text(gender.isEmpty ? "Select Gender" : gender)
-                                .foregroundColor(.gray)
-                            Image(systemName: "chevron.down")
-                                .foregroundColor(Color(hex: "1C3968"))
-                        }
-                    }
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
-                    
-                    HStack
-                    {
-                        Image(systemName: "mail")
-                        TextField("Email", text: $email)
-                        
-                        Spacer()
-                        
-                        if (email.count != 0)
-                        {
-                            Image(systemName: email.isValidEmail() ? "checkmark" : "xmark")
-                                .fontWeight(.bold)
-                                .foregroundColor(email.isValidEmail() ? .green : .red)
-                        }
-                    }
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
-                    
-                    HStack
-                    {
-                        Image(systemName: "lock")
-                        PasswordView(title: "Password", password: $password, showPassword: $showPassword)
-                        
-                        Spacer()
-                        
-                        if (password.count != 0)
-                        {
-                            Image(systemName: isValidPassword(password: password) ? "checkmark" : "xmark")
-                                .fontWeight(.bold)
-                                .foregroundColor(isValidPassword(password: password) ? .green : .red)
-                        }
-                    }
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
-                    
-                    HStack {
-                        Image(systemName: "lock")
-                        PasswordView(title: "Confirm Password", password: $confirmPassword, showPassword: $showConfirmPassword)
-                        //SecureField("Confirm Password", text: $confirmPassword)
-                        
-                        Spacer()
-                        
-                        if (confirmPassword.count != 0) {
-                            Image(systemName: confirmPassword == password ? "checkmark" : "xmark")
-                                .fontWeight(.bold)
-                                .foregroundColor(confirmPassword == password ? .green : .red)
-                        }
-                    }
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
-                    
-                    Button
-                    {
-                        guard !email.isEmpty, !password.isEmpty else
-                        {
-                            return
-                        }
-                        viewModel.signUp(email: email, password: password, firstName: firstName, lastName: lastName, gender: gender)
-                        {
-                            //Handles successful sign up, if successful navigates to Login Page for login
-                            error in
-                            if let error = error
-                            {
-                                print("Sign Up Error: \(error.localizedDescription)")
-                            }
-                        }
-                    } label: {
-                        DermButton(title: "Sign Up")
-                    }
-                    
-                }
-                .padding()
+    // Main content view
+    var content: some View {
+        CustomNavigationBar(title: "Register") {
+            VStack {
+                formContent
                 Spacer()
             }
             .background(Color.white)
             .edgesIgnoringSafeArea(.top)
         }
+    }
+        
+    // Registration form content
+    var formContent: some View {
+        VStack(spacing: 16) {
+            LogoView()
+            SignUpPromptView()
+            NameInputFieldsView(firstName: $firstName, lastName: $lastName)
+            GenderMenuView(gender: $gender)
+            EmailInputView(email: $email)
+            PasswordInputView(title: "Password", password: $password, showPassword: $showPassword)
+            PasswordInputView(title: "Confirm Password", password: $confirmPassword, showPassword: $showConfirmPassword)
+            SignUpButtonView(email: email, password: password, firstName: firstName, lastName: lastName, gender: gender, viewModel: viewModel, presentationMode: presentationMode)
+        }
+        .padding()
     }
 }
 

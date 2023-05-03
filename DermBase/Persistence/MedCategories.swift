@@ -12,12 +12,8 @@ struct CollectionNames
         "Acne Vulgaris",
         "Alopecia",
         "Eczema",
-        //"Hidradenitis Suppurativa",
-        //"Melasma",
         "Prurigo Nodularis",
         "Psoriasis",
-        //"Rosacea",
-        //"SJS",
         "Vitiligo",
     ]
 }

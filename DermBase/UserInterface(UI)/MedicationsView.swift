@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MedicationsView: View
 {
-    @ObservedObject var viewModel = MedicationsViewModel()
+    @EnvironmentObject var viewModel: MedicationsViewModel
+    @EnvironmentObject var appViewModel: AppViewModel
 
     var body: some View
     {
@@ -31,7 +32,6 @@ struct MedicationsView: View
                         Text(medication.trade)
                     }
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-
                 }
                 .listStyle(PlainListStyle())
                 .padding(.horizontal)
@@ -43,6 +43,18 @@ struct MedicationsView: View
                 .background(Color(hex: "1C3968"))
         }
         .navigationBarBackButtonHidden()
+        .onAppear {
+            appViewModel.fetchFavoriteMedicationIDs { result in
+                switch result {
+                case .success(let favoriteMedicationIDs):
+                    viewModel.savedMedications = viewModel.medications.filter {
+                        favoriteMedicationIDs.contains($0.id)
+                    }
+                case .failure(let error):
+                    print("Error fetching favorite medication documentIDs: \(error.localizedDescription)")
+                }
+            }
+        }
     }
 }
 
