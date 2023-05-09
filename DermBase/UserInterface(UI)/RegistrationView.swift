@@ -10,6 +10,7 @@ import FirebaseAuth
 
 struct RegistrationView: View
 {
+    // State variables
     @State private var firstName: String = ""
     @State private var lastName: String = ""
     @State private var email: String = ""
@@ -19,6 +20,7 @@ struct RegistrationView: View
     @State private var showPassword: Bool = false
     @State private var showConfirmPassword: Bool = false
     
+    // Environment objects for view model and presentationMode
     @EnvironmentObject var viewModel: AppViewModel
     @Environment(\.presentationMode) var presentationMode
     
@@ -37,9 +39,12 @@ struct RegistrationView: View
     }
     
     // Main content view
-    var content: some View {
-        CustomNavigationBar(title: "Register") {
-            VStack {
+    var content: some View
+    {
+        CustomNavigationBar(title: "Register")
+        {
+            VStack
+            {
                 formContent
                 Spacer()
             }
@@ -49,12 +54,13 @@ struct RegistrationView: View
     }
         
     // Registration form content
-    var formContent: some View {
-        VStack(spacing: 16) {
+    var formContent: some View
+    {
+        VStack(spacing: 16)
+        {
             LogoView()
             SignUpPromptView()
             NameInputFieldsView(firstName: $firstName, lastName: $lastName)
-            GenderMenuView(gender: $gender)
             EmailInputView(email: $email)
             PasswordInputView(title: "Password", password: $password, showPassword: $showPassword)
             PasswordInputView(title: "Confirm Password", password: $confirmPassword, showPassword: $showConfirmPassword)

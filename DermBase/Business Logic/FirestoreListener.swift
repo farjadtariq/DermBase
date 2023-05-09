@@ -6,28 +6,33 @@
 
 import FirebaseFirestore
 
-class FirestoreListener {
+class FirestoreListener
+{
     
     private var listeners = [ListenerRegistration]()
     
     // Enum to represent the type of document change in Firestore
-    enum DocumentChangeType {
+    enum DocumentChangeType
+    {
         case added
         case modified
         case removed
     }
     
     // Function to add Firestore listeners for the given collections
-    func addFirestoreListeners(for collections: [String], onUpdate: @escaping (Medication, String, DocumentChangeType) -> Void) {
+    func addFirestoreListeners(for collections: [String], onUpdate: @escaping (Medication, String, DocumentChangeType) -> Void)
+    {
         let firestoreManager = FirestoreManager(collectionNames: collections)
         
         // Iterate through each collection
-        for selectedCategory in firestoreManager.collectionNames {
+        for selectedCategory in firestoreManager.collectionNames
+        {
             let medicationsRef = firestoreManager.db.collection(selectedCategory)
 
             // Add a snapshot listener to listen for changes in the collection
             let listener = medicationsRef.addSnapshotListener { (querySnapshot, error) in
-                if let error = error {
+                if let error = error
+                {
                     print("Error fetching real-time updates: \(error)")
                     return
                 }
@@ -82,7 +87,8 @@ class FirestoreListener {
     }
     
     // Remove all listeners when the FirestoreListener object is deallocated
-    deinit {
+    deinit
+    {
         listeners.forEach { $0.remove() }
     }
 }

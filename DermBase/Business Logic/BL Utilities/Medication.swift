@@ -6,9 +6,6 @@
 //  Created by Farjad on 20/04/2023.
 //
 
-import Foundation
-import FirebaseFirestoreSwift
-
 struct Medication: Codable
 {
     var id: String

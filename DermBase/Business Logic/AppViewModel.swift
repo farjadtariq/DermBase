@@ -51,8 +51,10 @@ class AppViewModel: ObservableObject
     }
     
     // Deinitialize the listener when AppViewModel gets deallocated
-    deinit {
-        if let handle = authStateListenerHandle {
+    deinit
+    {
+        if let handle = authStateListenerHandle
+        {
             auth.removeStateDidChangeListener(handle)
         }
     }
@@ -67,13 +69,18 @@ class AppViewModel: ObservableObject
             }
             
             // Check if the user's email is verified
-            if user.isEmailVerified {
-                DispatchQueue.main.async {
+            if user.isEmailVerified
+            {
+                DispatchQueue.main.async
+                {
                     // Update the user token
                     self?.checkUserToken()
                 }
-            } else {
-                DispatchQueue.main.async {
+            }
+            else
+            {
+                DispatchQueue.main.async
+                {
                     self?.emailNotVerified = true
                 }
             }
@@ -92,11 +99,14 @@ class AppViewModel: ObservableObject
             
             // Sends an email verification upon successful sign up
             user.sendEmailVerification { error in
-                if let error = error {
+                if let error = error
+                {
                     completion(error)
                 }
-                else {
-                    DispatchQueue.main.async {
+                else
+                {
+                    DispatchQueue.main.async
+                    {
                         // Update the signedUp state and call the completion handler
                         self?.signedIn = false
                         self?.signedUp = true
@@ -106,12 +116,33 @@ class AppViewModel: ObservableObject
             }
             
             // Add User Data to Firestore
-            self?.firestoreManager.addUserDataToFirestore(userUID: user.uid, firstName: firstName, lastName: lastName, gender: gender, email: email) { error in
+            self?.firestoreManager.addUserDataToFirestore(userUID: user.uid, firstName: firstName, lastName: lastName, email: email) { error in
                 if let error = error {
                     completion(error)
                 }
             }
         }
+    }
+    
+    // Reset Password function
+    func resetPassword(email: String, completion: @escaping (Error?) -> Void)
+    {
+        auth.sendPasswordReset(withEmail: email) { error in
+            completion(error)
+        }
+    }
+
+    // Delete account function
+    func deleteAccount(completion: @escaping (Error?) -> Void)
+    {
+        auth.currentUser?.delete(completion: { error in
+            if let error = error {
+                completion(error)
+            } else {
+                self.signOut()
+                completion(nil)
+            }
+        })
     }
     
     // Sign Out function
@@ -127,17 +158,23 @@ class AppViewModel: ObservableObject
     {
         // Fetch ID token result and check the token's expiration claim and email verification status
         auth.currentUser?.getIDTokenResult(completion: { [weak self] result, error in
-            if let error = error {
+            if let error = error
+            {
                 print("Error fetching ID token: \(error)")
                 return
             }
             
-            if result?.claims["exp"] == nil || !(self?.auth.currentUser?.isEmailVerified ?? false) {
-                DispatchQueue.main.async {
+            if result?.claims["exp"] == nil || !(self?.auth.currentUser?.isEmailVerified ?? false)
+            {
+                DispatchQueue.main.async
+                {
                     self?.signedIn = false
                 }
-            } else {
-                DispatchQueue.main.async {
+            }
+            else
+            {
+                DispatchQueue.main.async
+                {
                     self?.signedIn = true
                 }
             }
@@ -145,25 +182,39 @@ class AppViewModel: ObservableObject
     }
 
     // Function to handle when the app becomes active
-    @objc func handleAppDidBecomeActive() {
+    @objc func handleAppDidBecomeActive()
+    {
         checkUserToken()
     }
     
+    // Function to fetch user data for the logged-in user
+    func fetchUserData(completion: @escaping (Result<UserData, Error>) -> Void)
+    {
+        guard let userUID = auth.currentUser?.uid else {
+            completion(.failure(NSError(domain: "No user is logged in.", code: -1, userInfo: nil)))
+            return
+        }
+        firestoreManager.fetchUserData(userUID: userUID, completion: completion)
+    }
+    
     // Function to add a favorite medication to the user's favorites in Firestore
-    func addFavoriteMedication(medicationDocumentID: String, completion: @escaping (Error?) -> Void) {
+    func addFavoriteMedication(medicationDocumentID: String, completion: @escaping (Error?) -> Void)
+    {
         guard let userUID = auth.currentUser?.uid else { return }
         firestoreManager.addFavoriteMedication(userUID: userUID, medicationDocumentID: medicationDocumentID, completion: completion)
         
     }
 
     // Function to remove a favorite medication from the user's favorites in Firestore
-    func removeFavoriteMedication(medicationDocumentID: String, completion: @escaping (Error?) -> Void) {
+    func removeFavoriteMedication(medicationDocumentID: String, completion: @escaping (Error?) -> Void)
+    {
         guard let userUID = auth.currentUser?.uid else { return }
         firestoreManager.removeFavoriteMedication(userUID: userUID, medicationDocumentID: medicationDocumentID, completion: completion)
     }
 
     // Function to fetch favorite medication IDs for the logged-in user
-    func fetchFavoriteMedicationIDs(completion: @escaping (Result<[String], Error>) -> Void) {
+    func fetchFavoriteMedicationIDs(completion: @escaping (Result<[String], Error>) -> Void)
+    {
         guard let userUID = auth.currentUser?.uid else {
             completion(.failure(NSError(domain: "No user is logged in.", code: -1, userInfo: nil)))
             return

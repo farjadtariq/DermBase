@@ -17,13 +17,16 @@ struct LoginView: View {
     @EnvironmentObject var viewModel: AppViewModel
     @EnvironmentObject var medViewModel: MedicationsViewModel
     
-    var body: some View {
+    var body: some View
+    {
         // Check if the user is signed in
-        if viewModel.signedIn {
-            // If signed in, navigate to the MedicationsView
-            MedicationsView()
-                .environmentObject(medViewModel)
-        } else {
+        if viewModel.signedIn
+        {
+            // If signed in, navigate to HomeView
+            HomeView()
+        }
+        else
+        {
             // If not signed in, display content
             content
                 .navigationBarBackButtonHidden()
@@ -43,9 +46,12 @@ struct LoginView: View {
         }
     }
     
-    var content: some View {
-        CustomNavigationBar(title: "Login") {
-            VStack {
+    var content: some View
+    {
+        CustomNavigationBar(title: "Login")
+        {
+            VStack
+            {
                 formContent
                 Spacer()
             }
@@ -56,7 +62,8 @@ struct LoginView: View {
     
     var formContent: some View
     {
-        VStack(spacing: 16) {
+        VStack(spacing: 16)
+        {
             LogoView()
             SignInPromptView()
             EmailInputView(email: $email)
@@ -66,8 +73,6 @@ struct LoginView: View {
         .padding()
     }
 }
-
-
 
 
 struct LoginView_Previews: PreviewProvider

@@ -14,54 +14,48 @@ struct SettingsView: View
     var body: some View
     {
         content
-            .navigationBarBackButtonHidden()
     }
     
     var content: some View
     {
-        CustomNavigationBar(title: "Settings")
+        CustomNavigationBar(title: "Settings", showBackButton: false)
         {
-            ZStack
+            VStack
             {
-                Color.white
-                
-                VStack
-                {
-                    List {
-                        NavigationLink(destination: AccountInformationView()) {
-                            Text("Account Information")
-                                .font(.headline)
-                        }
-                        
-                        NavigationLink(destination: PrivacyPolicyView()) {
-                            Text("Privacy Policy")
-                                .font(.headline)
-                        }
-                        
-                        NavigationLink(destination: TermsOfServiceView()) {
-                            Text("Terms of Service")
-                                .font(.headline)
-                        }
-                        
+                List {
+                    NavigationLink(destination: AccountInformationView()) {
+                        Text("Account Information")
+                            .font(.headline)
                     }
-                    .listStyle(PlainListStyle())
                     
-                    Spacer()
+                    NavigationLink(destination: PrivacyPolicyView()) {
+                        Text("Privacy Policy")
+                            .font(.headline)
+                    }
                     
-                    Button
-                    {
-                        viewModel.signOut()
-                    } label:
-                    
-                    {
-                        DermButton(title: "Log Out")
+                    NavigationLink(destination: TermsOfServiceView()) {
+                        Text("Terms of Service")
+                            .font(.headline)
                     }
                     
                 }
-                .padding(.bottom)
-                .padding(.bottom)
+                .listStyle(PlainListStyle())
+                
+                Spacer()
+                
+                Button
+                {
+                    viewModel.signOut()
+                } label:
+                
+                {
+                    DermButton(title: "Log Out")
+                }
+                
+                Spacer()
             }
-            .ignoresSafeArea(.all)
+            .background(Color.white)
+            Spacer()
         }
     }
 }

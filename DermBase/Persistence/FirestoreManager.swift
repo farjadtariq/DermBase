@@ -98,22 +98,51 @@ class FirestoreManager
     }
     
     // Function to add user data to Firestore
-    func addUserDataToFirestore(userUID: String, firstName: String, lastName: String, gender: String, email: String, completion: @escaping (Error?) -> Void)
+    func addUserDataToFirestore(userUID: String, firstName: String, lastName: String, email: String, completion: @escaping (Error?) -> Void)
     {
         // Create a dictionary with user data
         let userData: [String: Any] = [
             "firstName": firstName,
             "lastName": lastName,
-            "gender": gender,
             "email": email
         ]
         
         // Set user data in Firestore
         db.collection("users").document(userUID).setData(userData) { error in
-            if let error = error {
+            if let error = error
+            {
                 completion(error)
-            } else {
+            }
+            else
+            {
                 completion(nil)
+            }
+        }
+    }
+    
+    // Function to fetch user data for the given userUID
+    func fetchUserData(userUID: String, completion: @escaping (Result<UserData, Error>) -> Void)
+    {
+        // Get user document reference
+        let userDocumentRef = db.collection("users").document(userUID)
+        
+        // Fetch user document and extract user data
+        userDocumentRef.getDocument { (document, error) in
+            if let error = error
+            {
+                completion(.failure(error))
+            }
+            else if let document = document, document.exists
+            {
+                let firstName = document.get("firstName") as? String ?? ""
+                let lastName = document.get("lastName") as? String ?? ""
+                let email = document.get("email") as? String ?? ""
+                let userData = UserData(firstName: firstName, lastName: lastName, email: email)
+                completion(.success(userData))
+            }
+            else
+            {
+                completion(.failure(NSError(domain: "User document not found.", code: -1, userInfo: nil)))
             }
         }
     }
@@ -128,9 +157,12 @@ class FirestoreManager
         userDocumentRef.updateData([
             "favorites": FieldValue.arrayUnion([medicationDocumentID])
         ]) { error in
-            if let error = error {
+            if let error = error
+            {
                 completion(error)
-            } else {
+            }
+            else
+            {
                 completion(nil)
             }
         }
@@ -146,9 +178,12 @@ class FirestoreManager
         userDocumentRef.updateData([
             "favorites": FieldValue.arrayRemove([medicationDocumentID])
         ]) { error in
-            if let error = error {
+            if let error = error
+            {
                 completion(error)
-            } else {
+            }
+            else
+            {
                 completion(nil)
             }
         }
@@ -162,12 +197,17 @@ class FirestoreManager
         
         // Fetch user document and extract favorites array
         userDocumentRef.getDocument { (document, error) in
-            if let error = error {
+            if let error = error
+            {
                 completion(.failure(error))
-            } else if let document = document, document.exists {
+            }
+            else if let document = document, document.exists
+            {
                 let favorites = document.get("favorites") as? [String] ?? []
                 completion(.success(favorites))
-            } else {
+            }
+            else
+            {
                 completion(.failure(NSError(domain: "User document not found.", code: -1, userInfo: nil)))
             }
         }

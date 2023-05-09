@@ -7,23 +7,32 @@
 
 import SwiftUI
 
-struct FavoriteButton: View {
+struct FavoriteButton: View
+{
     @Binding var isFavorite: Bool
     @EnvironmentObject var viewModel: AppViewModel
     var medicationID: String
 
-    var body: some View {
-        Button {
+    var body: some View
+    {
+        Button
+        {
             isFavorite.toggle()
-            if isFavorite {
+            
+            if isFavorite
+            {
                 viewModel.addFavoriteMedication(medicationDocumentID: medicationID) { error in
-                    if let error = error {
+                    if let error = error
+                    {
                         print("Add Favorite Error: \(error.localizedDescription)")
                     }
                 }
-            } else {
+            }
+            else
+            {
                 viewModel.removeFavoriteMedication(medicationDocumentID: medicationID) { error in
-                    if let error = error {
+                    if let error = error
+                    {
                         print("Removing favorite Error: \(error.localizedDescription)")
                     }
                 }
@@ -38,11 +47,14 @@ struct FavoriteButton: View {
 }
 
 
-struct MedicationDetailsGroup1: View {
+struct MedicationDetailsGroup1: View
+{
     let medication: Medication
     
-    var body: some View {
-        Group {
+    var body: some View
+    {
+        Group
+        {
             // VStacks for the details grouped to avoid clutter
             VStack(alignment: .leading) {
                 Text("Year Approved")
@@ -103,12 +115,15 @@ struct MedicationDetailsGroup1: View {
     }
 }
 
-struct MedicationDetailsGroup2: View {
+struct MedicationDetailsGroup2: View
+{
     let medication: Medication
     @State private var showSafariView = false
     
-    var body: some View {
-        Group {
+    var body: some View
+    {
+        Group
+        {
             // VStacks for the details grouped to avoid clutter
             VStack(alignment: .leading) {
                 Text("Initiation Dosing")

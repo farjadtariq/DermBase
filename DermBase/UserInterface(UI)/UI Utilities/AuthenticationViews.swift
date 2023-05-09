@@ -147,34 +147,6 @@ struct PasswordInputView: View {
     }
 }
 
-struct GenderMenuView: View {
-    @Binding var gender: String
-
-    var body: some View {
-        Menu {
-            Button(action: { gender = "Male" }) {
-                Text("Male")
-            }
-            Button(action: { gender = "Female" }) {
-                Text("Female")
-            }
-            Button(action: { gender = "I do not wish to identify" }) {
-                Text("I do not wish to identify")
-            }
-        } label: {
-            HStack {
-                Text(gender.isEmpty ? "Select Gender" : gender)
-                    .foregroundColor(.gray)
-                Image(systemName: "chevron.down")
-                    .foregroundColor(Color(hex: "1C3968"))
-            }
-        }
-        .padding()
-        .background(Color.gray.opacity(0.2))
-        .cornerRadius(10)
-    }
-}
-
 struct SignInButtonView: View {
     var email: String
     var password: String
@@ -189,10 +161,6 @@ struct SignInButtonView: View {
         } label: {
             DermButton(title: "Sign In")
         }
-        /*
-        .onSubmit {
-            viewModel.signedIn = viewModel.isSignedIn
-        }*/
     }
 }
 

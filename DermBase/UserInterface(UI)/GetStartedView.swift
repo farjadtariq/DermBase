@@ -12,6 +12,12 @@ struct GetStarted: View
 {
     var body: some View
     {
+        content
+            .navigationBarBackButtonHidden()
+    }
+    
+    var content: some View
+    {
         ZStack
         {
             Color(hex: "1C3968")
@@ -43,7 +49,6 @@ struct GetStarted: View
                 Spacer()
             }
         }
-        .navigationBarBackButtonHidden()
     }
 }
 

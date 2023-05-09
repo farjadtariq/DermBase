@@ -11,7 +11,7 @@ import SwiftUI
 struct CustomNavigationBar<Content: View>: View
 {
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.scenePhase) private var scenePhase
+    //@Environment(\.scenePhase) private var scenePhase
 
     let title: String
     let showBackButton: Bool
@@ -29,7 +29,7 @@ struct CustomNavigationBar<Content: View>: View
         ZStack
         {
             Color(hex: "1C3968")
-                .ignoresSafeArea(.all)
+                .edgesIgnoringSafeArea(.all)
             
             VStack
             {

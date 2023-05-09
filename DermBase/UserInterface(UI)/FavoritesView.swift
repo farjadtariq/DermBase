@@ -17,6 +17,11 @@ struct FavoritesView: View
     
     var body: some View
     {
+        content
+    }
+    
+    var content: some View
+    {
         CustomNavigationBar(title: "Favorites", showBackButton: false)
         {
             VStack
@@ -25,7 +30,7 @@ struct FavoritesView: View
                 
                 CategoryPicker(selectedCategory: $medViewModel.selectedCategory)
                 
-                List(medViewModel.savedMedications, id: \.id) { medication in
+                List(medViewModel.filteredMedications(saved: true), id: \.id) { medication in
                     NavigationLink(destination: MedicationsDetailView(medication: medication, category: medication.category)) {
                         Text(medication.trade)
                     }
@@ -38,10 +43,7 @@ struct FavoritesView: View
             }
             .background(Color.white)
             Spacer()
-            FooterView()
-                .background(Color(hex: "1C3968"))
         }
-        .navigationBarBackButtonHidden()
     }
 }
 

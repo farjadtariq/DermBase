@@ -17,7 +17,8 @@ struct SearchBar: View
     
     var body: some View
     {
-        ZStack(alignment: .trailing) {
+        ZStack(alignment: .trailing)
+        {
             TextField("Search", text: $text)
                 .padding(.trailing, showClearButton ? 25 : 0)
                 .foregroundColor(Color(hex: "1C3968"))
@@ -34,7 +35,8 @@ struct SearchBar: View
                     showClearButton = !value.isEmpty
                 }
             
-            if showClearButton {
+            if showClearButton
+            {
                 Button(action: {
                     text = ""
                 }) {
@@ -44,7 +46,6 @@ struct SearchBar: View
                 .padding(.trailing, 20)
                 .padding(.top, 15)
             }
-            
         }
     }
 }
@@ -56,13 +57,15 @@ struct CategoryPicker: View
     
     var body: some View
     {
-        HStack {
+        HStack
+        {
             Text("Diseases: \(selectedCategory)")
                 .foregroundColor(Color(hex: "1C3968"))
             
             Spacer()
             
-            Menu {
+            Menu
+            {
                 Button(action: {selectedCategory = defaultCategory})
                 {
                     Text(defaultCategory).tag(defaultCategory)
@@ -89,25 +92,3 @@ struct CategoryPicker: View
         .padding(.horizontal)
     }
 }
-        /*
-        Picker(selection: $selectedCategory, label: Text("Category: \(selectedCategory)").foregroundColor(Color.gray))
-        {
-            Text(defaultCategory).tag(defaultCategory)
-            ForEach(CollectionNames.categories, id: \.self) { category in
-                Text(category).tag(category)
-            }
-        }
-        .scaledToFit()
-        .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
-        .background(Color.gray.opacity(0.3))
-        .foregroundColor(Color(hex: "E37825"))
-        .cornerRadius(10)
-    }
-}
-*/
-
-/*
- .background(Color.gray.opacity(0.3))
- .foregroundColor(Color.gray)
- .cornerRadius(10)
- */
