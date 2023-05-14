@@ -30,7 +30,7 @@ struct GetStarted: View
                 Image("Logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 390, height: 370)
+                    .frame(width: 330, height: 310)
                     .padding(.bottom, 50)
                     .padding(.top, -100)
                 
@@ -38,7 +38,7 @@ struct GetStarted: View
                     .foregroundColor(.white)
                     .font(.title2)
                     .fontWeight(.semibold)
-                    .padding(.top, -100)
+                    .padding(.top, -80)
                 
                 
                 NavigationLink(destination: LoginView())

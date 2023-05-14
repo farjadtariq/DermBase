@@ -41,7 +41,7 @@ struct FavoritesView: View
                 Spacer()
                 
             }
-            .background(Color.white)
+            .background(Color(UIColor.systemBackground))
             Spacer()
         }
     }

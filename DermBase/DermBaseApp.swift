@@ -35,7 +35,7 @@ struct DermBaseApp: App
             }
             // Use StackNavigationViewStyle for the NavigationView
             .navigationViewStyle(StackNavigationViewStyle())
-            .navigationBarBackButtonHidden()
+            //.navigationBarBackButtonHidden()
             // Share the view models across the app as environment objects
             .environmentObject(viewModel)
             .environmentObject(medViewModel)

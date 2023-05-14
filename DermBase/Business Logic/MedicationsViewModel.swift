@@ -27,7 +27,8 @@ class MedicationsViewModel: ObservableObject
     private let firestoreManager = FirestoreManager(collectionNames: CollectionNames.categories)
     private let firestoreListener = FirestoreListener()
     
-    init() {
+    init()
+    {
         
         // Load cached data if available
         loadCachedData()
@@ -39,7 +40,7 @@ class MedicationsViewModel: ObservableObject
     // Filter medications based on searchText and selectedCategory
     func filteredMedications(saved: Bool = false) -> [Medication]
     {
-        let list = saved ? savedMedications : medications
+        let list = saved ? sortedSavedMedications : sortedMedications
 
         let filteredBySearchText = searchText.isEmpty ? list : list.filter { medication in
             medication.trade.lowercased().contains(searchText.lowercased())
@@ -58,6 +59,19 @@ class MedicationsViewModel: ObservableObject
         }
     }
     
+    // Sort Medications List
+    private var sortedMedications: [Medication]
+    {
+        return medications.sorted { $0.trade.localizedStandardCompare($1.trade) == .orderedAscending }
+    }
+        
+    // Sort Saved Medications List
+    private var sortedSavedMedications: [Medication]
+    {
+        return savedMedications.sorted { $0.trade.localizedStandardCompare($1.trade) == .orderedAscending }
+    }
+
+    // Create cache to minimize read/writes to firestore
     private func loadCachedData()
     {
         // Check if there's any cached data available
@@ -83,6 +97,7 @@ class MedicationsViewModel: ObservableObject
         }
     }
     
+    // Listen for changes made to firestore so cached data can be updated as well
     private func addFirestoreListeners()
     {
         firestoreListener.addFirestoreListeners(for: CollectionNames.categories) { [weak self] medication, category, changeType in

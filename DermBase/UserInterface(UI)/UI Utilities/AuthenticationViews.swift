@@ -64,15 +64,56 @@ struct NameInputFieldsView: View {
 
     var body: some View {
         HStack {
-            TextField("First Name", text: $firstName)
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
-            TextField("Last Name", text: $lastName)
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
+            HStack {
+                Image(systemName: "person")
+                    .foregroundColor(Color(hex: "1C3968"))
+                TextField("First Name", text: $firstName)
+            }
+            .padding()
+            .cornerRadius(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color(hex: "1C3968"), lineWidth: 2)
+            )
+            
+            HStack {
+                Image(systemName: "person")
+                    .foregroundColor(Color(hex: "1C3968"))
+                TextField("Last Name", text: $lastName)
+            }
+            .padding()
+            .cornerRadius(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color(hex: "1C3968"), lineWidth: 2)
+            )
         }
+    }
+}
+
+struct NpiInputView: View {
+    @Binding var npi: String
+
+    var body: some View {
+        HStack {
+            Image(systemName: "number")
+                .foregroundColor(Color(hex: "1C3968"))
+            TextField("NPI Number", text: $npi)
+
+            Spacer()
+
+            if (npi.count != 0) {
+                Image(systemName: isValidNPI(npi: npi) ? "checkmark" : "xmark")
+                    .fontWeight(.bold)
+                    .foregroundColor(isValidNPI(npi: npi) ? .green : .red)
+            }
+        }
+        .padding()
+        .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color(hex: "1C3968"), lineWidth: 2)
+        )
     }
 }
 
@@ -82,6 +123,7 @@ struct EmailInputView: View {
     var body: some View {
         HStack {
             Image(systemName: "mail")
+                .foregroundColor(Color(hex: "1C3968"))
             TextField("Email", text: $email)
 
             Spacer()
@@ -93,8 +135,11 @@ struct EmailInputView: View {
             }
         }
         .padding()
-        .background(Color.gray.opacity(0.2))
         .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color(hex: "1C3968"), lineWidth: 2)
+        )
     }
 }
 
@@ -128,11 +173,16 @@ struct PasswordInputView: View {
     var title: String
     @Binding var password: String
     @Binding var showPassword: Bool
+    @Binding var isPasswordTapped: Bool
 
     var body: some View {
         HStack {
             Image(systemName: "lock")
+                .foregroundColor(Color(hex: "1C3968"))
             PasswordView(title: title, password: $password, showPassword: $showPassword)
+                .onTapGesture {
+                    isPasswordTapped = true
+                }
             Spacer()
 
             if (password.count != 0) {
@@ -142,24 +192,82 @@ struct PasswordInputView: View {
             }
         }
         .padding()
-        .background(Color.gray.opacity(0.2))
         .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color(hex: "1C3968"), lineWidth: 2)
+        )
+        .onChange(of: password) { _ in
+            if isValidPassword(password: password) {
+                isPasswordTapped = false
+            }
+        }
     }
 }
+
+struct PasswordRequirementsAlert: View {
+    var body: some View {
+        Text("Password must include: 1 uppercase, 1 lowercase, 1 numeric, and 1 special character.")
+            .foregroundColor(.red)
+            .font(.caption)
+            .fixedSize(horizontal: false, vertical: true)
+    }
+}
+struct PasswordMatchAlert: View {
+    var body: some View {
+        Text("Both passwords must match.")
+            .foregroundColor(.red)
+            .font(.caption)
+    }
+}
+
 
 struct SignInButtonView: View {
     var email: String
     var password: String
     @ObservedObject var viewModel: AppViewModel
+    @State private var errorMessage: String = ""
 
     var body: some View {
         Button {
             guard !email.isEmpty, !password.isEmpty else {
                 return
             }
-            viewModel.signIn(email: email, password: password)
+            viewModel.signIn(email: email, password: password) { error in
+                if let error = error {
+                    errorMessage = error.localizedDescription
+                } else {
+                    errorMessage = ""
+                }
+            }
         } label: {
             DermButton(title: "Sign In")
+        }
+        
+        if !errorMessage.isEmpty {
+            Text(errorMessage)
+                .foregroundColor(.red)
+                .font(.caption)
+        }
+    }
+}
+
+struct CheckboxToggleStyle: ToggleStyle
+{
+    
+    func makeBody(configuration: Self.Configuration) -> some View
+    {
+        HStack
+        {
+            Image(systemName: configuration.isOn ? "checkmark.square" : "square")
+                .resizable()
+                .frame(width: 20, height: 20)
+                .foregroundColor(configuration.isOn ? Color(hex: "1C3968") : .gray)
+                .onTapGesture
+                {
+                    configuration.isOn.toggle()
+                }
+            configuration.label
         }
     }
 }
@@ -169,23 +277,34 @@ struct SignUpButtonView: View {
     var password: String
     var firstName: String
     var lastName: String
-    var gender: String
+    var npi: String
     @ObservedObject var viewModel: AppViewModel
     @Binding var presentationMode: PresentationMode
-
+    var isCheckboxChecked: Bool
+    @Binding var showError: Bool
+    
     var body: some View {
         Button {
             guard !email.isEmpty, !password.isEmpty else {
                 return
             }
-            viewModel.signUp(email: email, password: password, firstName: firstName, lastName: lastName, gender: gender)
+            if isCheckboxChecked
             {
-                //Handles successful sign up, if successful navigates to Login Page for login
-                error in
-                if let error = error
+                viewModel.signUp(email: email, password: password, firstName: firstName, lastName: lastName, npi: npi)
                 {
-                    print("Sign Up Error: \(error.localizedDescription)")
+                    //Handles successful sign up, if successful navigates to Login Page for login
+                    error in
+                    if let error = error
+                    {
+                        print("Sign Up Error: \(error.localizedDescription)")
+                    }
                 }
+                showError = false
+            }
+            else
+            {
+                print("Privacy Policy and Terms and Conditions not agreed to.")
+                showError = true
             }
         } label: {
             DermButton(title: "Sign Up")

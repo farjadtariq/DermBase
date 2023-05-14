@@ -28,13 +28,8 @@ struct SettingsView: View
                             .font(.headline)
                     }
                     
-                    NavigationLink(destination: PrivacyPolicyView()) {
-                        Text("Privacy Policy")
-                            .font(.headline)
-                    }
-                    
-                    NavigationLink(destination: TermsOfServiceView()) {
-                        Text("Terms of Service")
+                    NavigationLink(destination: PrivacyTermsView()) {
+                        Text("Privacy and Terms")
                             .font(.headline)
                     }
                     
@@ -54,7 +49,7 @@ struct SettingsView: View
                 
                 Spacer()
             }
-            .background(Color.white)
+            .background(Color(UIColor.systemBackground))
             Spacer()
         }
     }

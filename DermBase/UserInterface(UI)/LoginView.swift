@@ -12,6 +12,7 @@ struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var showPassword: Bool = false
+    @State private var isPasswordTapped: Bool = false
     
     // Environment objects for view model and medications view model
     @EnvironmentObject var viewModel: AppViewModel
@@ -55,19 +56,19 @@ struct LoginView: View {
                 formContent
                 Spacer()
             }
-            .background(Color.white)
+            .background(Color(UIColor.systemBackground))
             .edgesIgnoringSafeArea(.top)
         }
     }
     
     var formContent: some View
     {
-        VStack(spacing: 16)
+        VStack(spacing: 13)
         {
             LogoView()
             SignInPromptView()
             EmailInputView(email: $email)
-            PasswordInputView(title: "Password",password: $password, showPassword: $showPassword)
+            PasswordInputView(title: "Password",password: $password, showPassword: $showPassword, isPasswordTapped: $isPasswordTapped)
             SignInButtonView(email: email, password: password, viewModel: viewModel)
         }
         .padding()

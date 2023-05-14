@@ -23,6 +23,10 @@ class AppViewModel: ObservableObject
     @Published var signedIn = false
     @Published var signedUp = false
     @Published var emailNotVerified = false
+    @Published var passwordReset: Bool = false
+    @Published var accountDeleted: Bool = false
+    @Published var errorMessage: String = ""
+    @Published var showErrorAlert = false
     
     // Create instances of FirestoreManager
     let firestoreManager = FirestoreManager(collectionNames: [])
@@ -60,11 +64,12 @@ class AppViewModel: ObservableObject
     }
     
     // Sign In function
-    func signIn(email: String, password: String)
+    func signIn(email: String, password: String, completion: @escaping (Error?) -> Void)
     {
         // Call Firebase signIn function with provided email and password
         auth.signIn(withEmail: email, password: password) { [weak self] result, error in
             guard let user = result?.user, error == nil else {
+                completion(error)
                 return
             }
             
@@ -75,6 +80,7 @@ class AppViewModel: ObservableObject
                 {
                     // Update the user token
                     self?.checkUserToken()
+                    completion(nil)
                 }
             }
             else
@@ -82,13 +88,14 @@ class AppViewModel: ObservableObject
                 DispatchQueue.main.async
                 {
                     self?.emailNotVerified = true
+                    completion(nil)
                 }
             }
         }
     }
     
     // Sign Up function
-    func signUp(email: String, password: String, firstName: String, lastName: String, gender: String, completion: @escaping (Error?) -> Void)
+    func signUp(email: String, password: String, firstName: String, lastName: String, npi: String, completion: @escaping (Error?) -> Void)
     {
         // Call Firebase createUser function with provided email and password
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
@@ -116,7 +123,7 @@ class AppViewModel: ObservableObject
             }
             
             // Add User Data to Firestore
-            self?.firestoreManager.addUserDataToFirestore(userUID: user.uid, firstName: firstName, lastName: lastName, email: email) { error in
+            self?.firestoreManager.addUserDataToFirestore(userUID: user.uid, firstName: firstName, lastName: lastName, email: email, npi: npi) { error in
                 if let error = error {
                     completion(error)
                 }
@@ -132,6 +139,7 @@ class AppViewModel: ObservableObject
         }
     }
 
+    /*
     // Delete account function
     func deleteAccount(completion: @escaping (Error?) -> Void)
     {
@@ -143,7 +151,44 @@ class AppViewModel: ObservableObject
                 completion(nil)
             }
         })
+    }*/
+    
+    // Delete account function
+    func deleteAccount(completion: @escaping (Error?) -> Void)
+    {
+        // Check if user is currently signed in
+        guard let user = auth.currentUser else {
+            completion(NSError(domain: "No user is currently signed in.", code: -1, userInfo: nil))
+            return
+        }
+
+        // Assign user id for deleting user data later
+        let userUID = user.uid
+        
+        // Delete user account
+        user.delete(completion: { [weak self] error in
+            if let error = error
+            {
+                completion(error)
+            }
+            else
+            {
+                // Delete user data associated with the account
+                self?.firestoreManager.deleteUserData(userUID: userUID) { error in
+                    if let error = error
+                    {
+                        completion(error)
+                    }
+                    else
+                    {
+                        self?.signOut()
+                        completion(nil)
+                    }
+                }
+            }
+        })
     }
+
     
     // Sign Out function
     func signOut()

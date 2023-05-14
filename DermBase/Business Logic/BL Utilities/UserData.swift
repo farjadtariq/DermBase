@@ -10,4 +10,5 @@ struct UserData
     let firstName: String
     let lastName: String
     let email: String
+    let npi: String
 }

@@ -14,6 +14,7 @@ struct Medication: Codable
     var baselineLabs: String
     var contraindications: String
     var dosingAdjustments: String
+    var enrollmentForm: String
     var generic: String
     var indication: String
     var indicationAges: String
@@ -21,7 +22,6 @@ struct Medication: Codable
     var maintenanceDosing: String
     var mechanismOfAction: String
     var metabolisingEnzymes: String
-    var pharmacogeneticsStudies: String
     var recommendedTimeFrame: String
     var resourcesUsed: String
     var route: String

@@ -21,9 +21,8 @@ struct SearchBar: View
         {
             TextField("Search", text: $text)
                 .padding(.trailing, showClearButton ? 25 : 0)
-                .foregroundColor(Color(hex: "1C3968"))
                 .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-                .background(Color.white)
+                .background(Color(UIColor.systemBackground))
                 .cornerRadius(10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
@@ -60,7 +59,6 @@ struct CategoryPicker: View
         HStack
         {
             Text("Diseases: \(selectedCategory)")
-                .foregroundColor(Color(hex: "1C3968"))
             
             Spacer()
             
@@ -79,11 +77,10 @@ struct CategoryPicker: View
                 }
             } label: {
                 Image(systemName: "chevron.down")
-                    .foregroundColor(Color(hex: "1C3968"))
             }
         }
         .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-        .background(Color.white)
+        .background(Color(UIColor.systemBackground))
         .cornerRadius(10)
         .overlay(
             RoundedRectangle(cornerRadius: 10)

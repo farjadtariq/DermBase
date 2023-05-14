@@ -30,7 +30,7 @@ struct CustomNavigationBar<Content: View>: View
         {
             Color(hex: "1C3968")
                 .edgesIgnoringSafeArea(.all)
-            
+        
             VStack
             {
                 HStack

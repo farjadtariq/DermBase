@@ -63,6 +63,7 @@ class FirestoreManager
                         baselineLabs: document["baselineLabs"] as? String ?? "",
                         contraindications: document["contraindications"] as? String ?? "",
                         dosingAdjustments: document["dosingAdjustments"] as? String ?? "",
+                        enrollmentForm: document["enrollmentForm"] as? String ?? "",
                         generic: document["generic"] as? String ?? "",
                         indication: document["indication"] as? String ?? "",
                         indicationAges: document["indicationAges"] as? String ?? "",
@@ -70,7 +71,6 @@ class FirestoreManager
                         maintenanceDosing: document["maintenanceDosing"] as? String ?? "",
                         mechanismOfAction: document["mechanismOfAction"] as? String ?? "",
                         metabolisingEnzymes: document["metabolisingEnzymes"] as? String ?? "",
-                        pharmacogeneticsStudies: document["pharmacogeneticsStudies"] as? String ?? "",
                         recommendedTimeFrame: document["recommendedTimeFrame"] as? String ?? "",
                         resourcesUsed: document["resourcesUsed"] as? String ?? "",
                         route: document["route"] as? String ?? "",
@@ -98,13 +98,14 @@ class FirestoreManager
     }
     
     // Function to add user data to Firestore
-    func addUserDataToFirestore(userUID: String, firstName: String, lastName: String, email: String, completion: @escaping (Error?) -> Void)
+    func addUserDataToFirestore(userUID: String, firstName: String, lastName: String, email: String, npi: String, completion: @escaping (Error?) -> Void)
     {
         // Create a dictionary with user data
         let userData: [String: Any] = [
             "firstName": firstName,
             "lastName": lastName,
-            "email": email
+            "email": email,
+            "npi": npi
         ]
         
         // Set user data in Firestore
@@ -137,7 +138,8 @@ class FirestoreManager
                 let firstName = document.get("firstName") as? String ?? ""
                 let lastName = document.get("lastName") as? String ?? ""
                 let email = document.get("email") as? String ?? ""
-                let userData = UserData(firstName: firstName, lastName: lastName, email: email)
+                let npi = document.get("npi") as? String ?? ""
+                let userData = UserData(firstName: firstName, lastName: lastName, email: email, npi: npi)
                 completion(.success(userData))
             }
             else
@@ -146,6 +148,26 @@ class FirestoreManager
             }
         }
     }
+    
+    // Function to delete user data from Firestore
+    func deleteUserData(userUID: String, completion: @escaping (Error?) -> Void)
+    {
+        // Get user document reference
+        let userDocumentRef = db.collection("users").document(userUID)
+
+        // Delete user document
+        userDocumentRef.delete { error in
+            if let error = error
+            {
+                completion(error)
+            }
+            else
+            {
+                completion(nil)
+            }
+        }
+    }
+
     
     // Function to add a favorite medication to user's favorites in Firestore
     func addFavoriteMedication(userUID: String, medicationDocumentID: String, completion: @escaping (Error?) -> Void)

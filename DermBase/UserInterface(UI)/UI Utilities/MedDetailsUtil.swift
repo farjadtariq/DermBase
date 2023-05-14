@@ -182,14 +182,6 @@ struct MedicationDetailsGroup2: View
             }
             
             VStack(alignment: .leading) {
-                Text("Pharmacogenetics Studies")
-                    .font(.subheadline)
-                    .foregroundColor(Color(hex: "E37825"))
-                Text(medication.pharmacogeneticsStudies)
-                    .font(.body)
-            }
-            
-            VStack(alignment: .leading) {
                 Text("Metabolising Enzymes")
                     .font(.subheadline)
                     .foregroundColor(Color(hex: "E37825"))
@@ -215,6 +207,32 @@ struct MedicationDetailsGroup2: View
                 {
                     Text("\(medication.resourcesUsed)")
                         .font(.body)
+                }
+            }
+            
+            
+            let enrollmentForm = medication.enrollmentForm
+            if enrollmentForm != ""
+            {
+                VStack(alignment: .leading) {
+                    Text("Enrollment Form")
+                        .font(.subheadline)
+                        .foregroundColor(Color(hex: "E37825"))
+                    if let url = URL(string: enrollmentForm), UIApplication.shared.canOpenURL(url)
+                    {
+                        Link("\(url.absoluteString)", destination: url)
+                            .font(.body)
+                            .foregroundColor(Color.blue)
+                            .sheet(isPresented: $showSafariView)
+                        {
+                            SafariView(url: url)
+                        }
+                    }
+                    else
+                    {
+                        Text("\(enrollmentForm)")
+                            .font(.body)
+                    }
                 }
             }
         }

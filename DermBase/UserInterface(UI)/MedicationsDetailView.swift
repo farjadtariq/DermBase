@@ -36,7 +36,7 @@ struct MedicationsDetailView: View
         {
             ZStack
             {
-                Color.white
+                Color(UIColor.systemBackground)
                     .ignoresSafeArea(.all)
                 
                 ScrollView
@@ -47,7 +47,7 @@ struct MedicationsDetailView: View
                         {
                             Text(medication.trade)
                                 .foregroundColor(Color(hex: "1C3968"))
-                                .font(.title2)
+                                .font(.title)
                                 .bold()
                                 .multilineTextAlignment(.leading)
                             
@@ -55,20 +55,16 @@ struct MedicationsDetailView: View
                             
                             FavoriteButton(isFavorite: $isFavorite, medicationID: medication.id)
                                 .environmentObject(viewModel)
-
                         }
                         
                         Divider()
                             .background(.gray)
                             .scaledToFit()
                         
-                        
                         MedicationDetailsGroup1(medication: medication)
                         MedicationDetailsGroup2(medication: medication)
-                        
                     }
                     .padding()
-                    
                 }
                 
                 // Used to create a white space in the safe area
@@ -77,7 +73,7 @@ struct MedicationsDetailView: View
                 {
                     Spacer()
                     Rectangle()
-                        .fill(Color.white)
+                        .fill(Color(UIColor.systemBackground))
                         .frame(height: 10)
                         .edgesIgnoringSafeArea(.bottom)
                 }
@@ -102,6 +98,7 @@ struct MedicationsDetailView_Previews: PreviewProvider
                     baselineLabs: "Example Baseline Labs",
                     contraindications: "Example Contraindications",
                     dosingAdjustments: "Example Dosing Adjustments",
+                    enrollmentForm: "Example Enrollment Form",
                     generic: "Example Generic",
                     indication: "Example Indication",
                     indicationAges: "Example Indication Ages",
@@ -109,7 +106,6 @@ struct MedicationsDetailView_Previews: PreviewProvider
                     maintenanceDosing: "Example Maintenance Dosing",
                     mechanismOfAction: "Example Mechanism Of Action",
                     metabolisingEnzymes: "Example Metabolising Enzymes",
-                    pharmacogeneticsStudies: "Example Pharmacogenetics Studies",
                     recommendedTimeFrame: "Example Recommended Time Frame",
                     resourcesUsed: "Example Resources Used",
                     route: "Example Route",

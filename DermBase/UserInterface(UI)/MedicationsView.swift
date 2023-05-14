@@ -57,7 +57,7 @@ struct MedicationsView: View
                 Spacer()
                 
             }
-            .background(Color.white)
+            .background(Color(UIColor.systemBackground))
             Spacer()
         }
     }

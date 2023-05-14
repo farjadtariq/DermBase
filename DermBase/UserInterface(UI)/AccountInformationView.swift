@@ -14,6 +14,9 @@ struct AccountInformationView: View
     @State private var userData: UserData? = nil
     @State private var showErrorAlert = false
     @State private var errorMessage = ""
+    @State private var currentAlert: AlertType? = nil
+    @State private var showAlert = false
+
     
     var body: some View
     {
@@ -23,6 +26,26 @@ struct AccountInformationView: View
             {
                 fetchUserData()
             }
+            .alert(isPresented: $showAlert) {
+                switch currentAlert {
+                case .error:
+                    return Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+                case .passwordResetSuccess:
+                    return Alert(title: Text("Password reset email sent successfully"),
+                                 message: Text("Please check your email for a link to reset your password."),
+                                 dismissButton: .default(Text("OK")) {
+                                     appViewModel.passwordReset = false
+                                 })
+                case .accountDeletedSuccess:
+                    return Alert(title: Text("Account deleted successfully"),
+                                 message: Text("Your account has been deleted, you will no longer be able to access DermBase."),
+                                 dismissButton: .default(Text("OK")) {
+                                     appViewModel.accountDeleted = false
+                                 })
+                case .none:
+                    return Alert(title: Text(""))
+                }
+            }
     }
     
     var content: some View
@@ -31,7 +54,8 @@ struct AccountInformationView: View
         {
             ZStack
             {
-                Color.white
+                Color(UIColor.systemBackground)
+                    .ignoresSafeArea(.all)
                 
                 VStack(spacing: 15)
                 {
@@ -63,6 +87,14 @@ struct AccountInformationView: View
                                 Text(userData.email)
                                     .font(.body)
                             }
+                            
+                            VStack(alignment: .leading) {
+                                Text("NPI Number")
+                                    .font(.subheadline)
+                                    .foregroundColor(Color(hex: "E37825"))
+                                Text(userData.npi)
+                                    .font(.body)
+                            }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading)
@@ -91,7 +123,6 @@ struct AccountInformationView: View
                 }
                 .padding(.top)
             }
-            .ignoresSafeArea(.all)
             .alert(isPresented: $showErrorAlert)
             {
                 Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
@@ -120,11 +151,16 @@ struct AccountInformationView: View
                 if let error = error
                 {
                     print("Error sending password reset email: \(error.localizedDescription)")
+                    errorMessage = error.localizedDescription
+                    currentAlert = .error
                 }
                 else
                 {
                     print("Password reset email sent successfully.")
+                    currentAlert = .passwordResetSuccess
+                    //appViewModel.passwordReset = true
                 }
+                showAlert = true
             }
         }
     }
@@ -135,14 +171,29 @@ struct AccountInformationView: View
             if let error = error
             {
                 print("Error deleting account: \(error.localizedDescription)")
+                errorMessage = error.localizedDescription
+                currentAlert = .error
             }
             else
             {
                 print("Account deleted successfully.")
-                appViewModel.signOut()
+                currentAlert = .accountDeletedSuccess
+                //appViewModel.accountDeleted = true
+                //showAlert = true
+                //appViewModel.signOut()
             }
+            showAlert = true
+            appViewModel.signOut()
         }
     }
+    
+    enum AlertType
+    {
+        case error
+        case passwordResetSuccess
+        case accountDeletedSuccess
+    }
+
 }
 
 
