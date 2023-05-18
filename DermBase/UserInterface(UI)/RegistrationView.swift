@@ -34,7 +34,7 @@ struct RegistrationView: View
             .navigationBarBackButtonHidden()
             .alert(isPresented: $viewModel.signedUp) {
                 Alert(title: Text("Sign Up Successful"),
-                      message: Text("Please verify your email before signing in."),
+                      message: Text("Please verify your account with the link sent to your email.\nMake sure to check spam/junk folders if email is not received directly in the inbox."),
                       dismissButton: .default(Text("OK")) {
                     viewModel.signedUp = false
                     self.presentationMode.wrappedValue.dismiss()

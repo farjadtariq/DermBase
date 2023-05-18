@@ -56,36 +56,44 @@ struct CategoryPicker: View
     
     var body: some View
     {
-        HStack
-        {
-            Text("Diseases: \(selectedCategory)")
-            
-            Spacer()
-            
-            Menu
-            {
-                Button(action: {selectedCategory = defaultCategory})
+        GeometryReader { geometry in
+            ZStack {
+                HStack
                 {
-                    Text(defaultCategory).tag(defaultCategory)
+                    Text("Diseases: \(selectedCategory)")
+                    Spacer()
+                    Image(systemName: "chevron.down")
                 }
-                ForEach(CollectionNames.categories, id: \.self) { category in
-                    Button(action: {
-                        selectedCategory = category
-                    }) {
-                        Text(category).tag(category)
+                .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                .background(Color(UIColor.systemBackground))
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color(hex: "E37825"), lineWidth: 2)
+                )
+                .padding(.horizontal)
+                
+                Menu
+                {
+                    Button(action: {selectedCategory = defaultCategory})
+                    {
+                        Text(defaultCategory).tag(defaultCategory)
                     }
+                    ForEach(CollectionNames.categories, id: \.self) { category in
+                        Button(action: {
+                            selectedCategory = category
+                        }) {
+                            Text(category).tag(category)
+                        }
+                    }
+                } label: {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: geometry.size.width, height: geometry.size.height)
                 }
-            } label: {
-                Image(systemName: "chevron.down")
             }
         }
-        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-        .background(Color(UIColor.systemBackground))
-        .cornerRadius(10)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color(hex: "E37825"), lineWidth: 2)
-        )
-        .padding(.horizontal)
+        .frame(height: 44)
     }
 }
+
