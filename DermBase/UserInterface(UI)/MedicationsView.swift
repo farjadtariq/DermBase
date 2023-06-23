@@ -9,8 +9,14 @@ import SwiftUI
 
 struct MedicationsView: View
 {
+    // Variable to show filter sheet
+    @State private var showFilterSheet = false
+    
+    
+    // Create instances of MedicationsViewModel and AppViewModel
     @EnvironmentObject var viewModel: MedicationsViewModel
     @EnvironmentObject var appViewModel: AppViewModel
+    
     
 
     var body: some View
@@ -29,6 +35,9 @@ struct MedicationsView: View
                     }
                 }
             }
+            .sheet(isPresented: $showFilterSheet) {
+                FilterSheet(showSheet: $showFilterSheet, selectedYearRange: $viewModel.selectedYearRange, suitableForChildren: $viewModel.suitableForChildren, suitableForPregnancy: $viewModel.suitableForPregnancy, suitableForBreastfeeding: $viewModel.suitableForBreastfeeding)
+            }
     }
     
     var content: some View
@@ -40,6 +49,8 @@ struct MedicationsView: View
                 SearchBar(text: $viewModel.searchText)
                 
                 CategoryPicker(selectedCategory: $viewModel.selectedCategory)
+                
+                FilterBar(showFilterSheet: $showFilterSheet)
                 
                 Divider()
                     .background(.gray)

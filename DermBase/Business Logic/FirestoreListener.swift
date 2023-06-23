@@ -62,6 +62,8 @@ class FirestoreListener
                         sideEffects: document["sideEffects"] as? String ?? "",
                         sideEffectsAbrev: document["sideEffectsAbrev"] as? String ?? "",
                         trade: document["trade"] as? String ?? "",
+                        useInBreastfeeding: document["useInBreastfeeding"] as? String ?? "",
+                        useInPregnancy: document["useInPregnancy"] as? String ?? "",
                         yearApproved: document["yearApproved"] as? String ?? ""
                     )
                     

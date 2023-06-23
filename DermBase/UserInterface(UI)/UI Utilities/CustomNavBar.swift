@@ -11,7 +11,6 @@ import SwiftUI
 struct CustomNavigationBar<Content: View>: View
 {
     @Environment(\.presentationMode) var presentationMode
-    //@Environment(\.scenePhase) private var scenePhase
 
     let title: String
     let showBackButton: Bool
@@ -43,7 +42,7 @@ struct CustomNavigationBar<Content: View>: View
                             Image(systemName: "chevron.left")
                                 .foregroundColor(Color(hex: "E37825"))
                                 .font(.system(size: 25, weight: .semibold))
-                                .padding(.leading, 5)
+                                .padding(.leading, 10)
                         })
                     }
                     Spacer()
@@ -68,7 +67,6 @@ struct CustomNavigationBar<Content: View>: View
             }
         }
     }
-
 }
 
 

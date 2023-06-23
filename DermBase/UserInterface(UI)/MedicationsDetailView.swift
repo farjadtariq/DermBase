@@ -112,6 +112,8 @@ struct MedicationsDetailView_Previews: PreviewProvider
                     sideEffects: "Example Side Effects",
                     sideEffectsAbrev: "Example Side Effects Abrev",
                     trade: "Example Trade",
+                    useInBreastfeeding: "Exampe Use in Breastfeeding",
+                    useInPregnancy: "Example Use in Pregnancy",
                     yearApproved: "Example Year Approved"
         )
                 

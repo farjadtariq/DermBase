@@ -139,20 +139,6 @@ class AppViewModel: ObservableObject
         }
     }
 
-    /*
-    // Delete account function
-    func deleteAccount(completion: @escaping (Error?) -> Void)
-    {
-        auth.currentUser?.delete(completion: { error in
-            if let error = error {
-                completion(error)
-            } else {
-                self.signOut()
-                completion(nil)
-            }
-        })
-    }*/
-    
     // Delete account function
     func deleteAccount(completion: @escaping (Error?) -> Void)
     {

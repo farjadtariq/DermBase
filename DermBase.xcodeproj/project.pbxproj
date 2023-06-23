@@ -13,11 +13,13 @@
 		C34B766A29ED98CD002AADB5 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34B766929ED98CD002AADB5 /* EmailValidation.swift */; };
 		C34B766D29ED991D002AADB5 /* PasswordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34B766C29ED991D002AADB5 /* PasswordValidation.swift */; };
 		C34B766F29ED9FAA002AADB5 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34B766E29ED9FAA002AADB5 /* AppViewModel.swift */; };
+		C355D5E32A2A2D010021956C /* MedicationFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C355D5E22A2A2D010021956C /* MedicationFilter.swift */; };
 		C35C826D29F122CF003AB5C1 /* MedicationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35C826C29F122CF003AB5C1 /* MedicationsViewModel.swift */; };
 		C35C826F29F127DB003AB5C1 /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35C826E29F127DB003AB5C1 /* Medication.swift */; };
 		C35C827129F12D62003AB5C1 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35C827029F12D62003AB5C1 /* FirestoreManager.swift */; };
 		C35C827429F12E13003AB5C1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C35C827329F12E13003AB5C1 /* FirebaseFirestoreSwift */; };
 		C35C827729F9DE60003AB5C1 /* MedicationsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35C827629F9DE5F003AB5C1 /* MedicationsDetailView.swift */; };
+		C39FE3EF2A32713500596193 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39FE3EE2A32713500596193 /* FilterView.swift */; };
 		C3B6E2F929D91C3F00A4AFAC /* DermBaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E2F829D91C3F00A4AFAC /* DermBaseApp.swift */; };
 		C3B6E2FB29D91C3F00A4AFAC /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B6E2FA29D91C3F00A4AFAC /* GetStartedView.swift */; };
 		C3B6E2FD29D91C4200A4AFAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3B6E2FC29D91C4200A4AFAC /* Assets.xcassets */; };
@@ -72,10 +74,12 @@
 		C34B766929ED98CD002AADB5 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		C34B766C29ED991D002AADB5 /* PasswordValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidation.swift; sourceTree = "<group>"; };
 		C34B766E29ED9FAA002AADB5 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		C355D5E22A2A2D010021956C /* MedicationFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationFilter.swift; sourceTree = "<group>"; };
 		C35C826C29F122CF003AB5C1 /* MedicationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsViewModel.swift; sourceTree = "<group>"; };
 		C35C826E29F127DB003AB5C1 /* Medication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medication.swift; sourceTree = "<group>"; };
 		C35C827029F12D62003AB5C1 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		C35C827629F9DE5F003AB5C1 /* MedicationsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationsDetailView.swift; sourceTree = "<group>"; };
+		C39FE3EE2A32713500596193 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		C3B6E2F529D91C3F00A4AFAC /* DermBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DermBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B6E2F829D91C3F00A4AFAC /* DermBaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DermBaseApp.swift; sourceTree = "<group>"; };
 		C3B6E2FA29D91C3F00A4AFAC /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 				C35C826E29F127DB003AB5C1 /* Medication.swift */,
 				C3B9D4912A040EB60003A411 /* UserData.swift */,
 				C32CA47C29FC522600104BE3 /* SafariView.swift */,
+				C355D5E22A2A2D010021956C /* MedicationFilter.swift */,
 			);
 			path = "BL Utilities";
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 				C3B9D48D2A02D8580003A411 /* AuthenticationViews.swift */,
 				C3B9D48F2A02D87E0003A411 /* MedDetailsUtil.swift */,
 				C3DA41B12A0D3A29001AE2AD /* PrivacyTermsUtil.swift */,
+				C39FE3EE2A32713500596193 /* FilterView.swift */,
 			);
 			path = "UI Utilities";
 			sourceTree = "<group>";
@@ -408,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3F0EE1829E1546A008A6B66 /* MedicationsView.swift in Sources */,
+				C355D5E32A2A2D010021956C /* MedicationFilter.swift in Sources */,
 				C3F0EE1229E0A6A9008A6B66 /* LoginView.swift in Sources */,
 				C35C827729F9DE60003AB5C1 /* MedicationsDetailView.swift in Sources */,
 				C3D938F72A0035CA0056C26D /* PrivacyTermsView.swift in Sources */,
@@ -418,6 +425,7 @@
 				C3B6E2FB29D91C3F00A4AFAC /* GetStartedView.swift in Sources */,
 				C34B766A29ED98CD002AADB5 /* EmailValidation.swift in Sources */,
 				C35C826F29F127DB003AB5C1 /* Medication.swift in Sources */,
+				C39FE3EF2A32713500596193 /* FilterView.swift in Sources */,
 				C3DA41B02A0BEC93001AE2AD /* NPIValidation.swift in Sources */,
 				C35C826D29F122CF003AB5C1 /* MedicationsViewModel.swift in Sources */,
 				C3D938FB2A00360C0056C26D /* AccountInformationView.swift in Sources */,

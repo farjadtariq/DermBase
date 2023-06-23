@@ -111,20 +111,7 @@ struct MedicationDetailsGroup1: View
                 Text(medication.baselineLabs)
                     .font(.body)
             }
-        }
-    }
-}
-
-struct MedicationDetailsGroup2: View
-{
-    let medication: Medication
-    @State private var showSafariView = false
-    
-    var body: some View
-    {
-        Group
-        {
-            // VStacks for the details grouped to avoid clutter
+            
             VStack(alignment: .leading) {
                 Text("Initiation Dosing")
                     .font(.subheadline)
@@ -140,7 +127,20 @@ struct MedicationDetailsGroup2: View
                 Text(medication.maintenanceDosing)
                     .font(.body)
             }
-            
+        }
+    }
+}
+
+struct MedicationDetailsGroup2: View
+{
+    let medication: Medication
+    @State private var showSafariView = false
+    
+    var body: some View
+    {
+        Group
+        {
+            // VStacks for the details grouped to avoid clutter
             VStack(alignment: .leading) {
                 Text("Dosing Adjustments")
                     .font(.subheadline)
@@ -171,6 +171,30 @@ struct MedicationDetailsGroup2: View
                     .foregroundColor(Color(hex: "E37825"))
                 Text(medication.sideEffectsAbrev)
                     .font(.body)
+            }
+            
+            let useInPregnancy = medication.useInPregnancy
+            if useInPregnancy != ""
+            {
+                VStack(alignment: .leading) {
+                    Text("Use in Pregnancy")
+                        .font(.subheadline)
+                        .foregroundColor(Color(hex: "E37825"))
+                    Text(useInPregnancy)
+                        .font(.body)
+                }
+            }
+            
+            let useInBreastfeeding = medication.useInBreastfeeding
+            if useInBreastfeeding != ""
+            {
+                VStack(alignment: .leading) {
+                    Text("Use in Breastfeeding")
+                        .font(.subheadline)
+                        .foregroundColor(Color(hex: "E37825"))
+                    Text(useInBreastfeeding)
+                        .font(.body)
+                }
             }
             
             VStack(alignment: .leading) {

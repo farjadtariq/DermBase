@@ -28,6 +28,8 @@ struct Medication: Codable
     var sideEffects: String
     var sideEffectsAbrev: String
     var trade: String
+    var useInBreastfeeding: String
+    var useInPregnancy: String
     var yearApproved: String
 }
 

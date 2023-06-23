@@ -10,7 +10,7 @@ import Combine
 
 class MedicationsViewModel: ObservableObject
 {
-    //Create list to store medications
+    // Create list to store medications
     @Published var medications = [Medication]()
     
     // Create list to store favorite medications
@@ -19,8 +19,14 @@ class MedicationsViewModel: ObservableObject
     // Add a new property to store the user's ID
     @Published var userUID: String = ""
     
+    // Creating variables for the filter function
     @Published var searchText: String = ""
     @Published var selectedCategory: String = "All"
+    @Published var selectedYearRange: String = "All"
+    @Published var suitableForChildren: Bool = false
+    @Published var suitableForPregnancy: Bool = false
+    @Published var suitableForBreastfeeding: Bool = false
+    
     
     // Create instances of cacheManager, firstoreManager and firestoreListener
     private let cacheManager = CacheManager()
@@ -29,7 +35,6 @@ class MedicationsViewModel: ObservableObject
     
     init()
     {
-        
         // Load cached data if available
         loadCachedData()
 
@@ -37,28 +42,26 @@ class MedicationsViewModel: ObservableObject
         addFirestoreListeners()
     }
     
-    // Filter medications based on searchText and selectedCategory
-    func filteredMedications(saved: Bool = false) -> [Medication]
-    {
+    
+    
+    // Filter medications based on searchText, selectedCategory, yearRange, age, safeForPregnancy and safeForBreastfeeding
+    func filteredMedications(saved: Bool = false) -> [Medication] {
         let list = saved ? sortedSavedMedications : sortedMedications
 
-        let filteredBySearchText = searchText.isEmpty ? list : list.filter { medication in
-            medication.trade.lowercased().contains(searchText.lowercased())
-                || medication.generic.lowercased().contains(searchText.lowercased())
-        }
-
-        if selectedCategory == "All"
-        {
-            return filteredBySearchText
-        }
-        else
-        {
-            return filteredBySearchText.filter { medication in
-                medication.category == selectedCategory
-            }
-        }
+        let filter = MedicationFilter(medications: list,
+                                      searchText: searchText,
+                                      selectedCategory: selectedCategory,
+                                      selectedYearRange: selectedYearRange,
+                                      suitableForChildren: suitableForChildren,
+                                      suitableForPregnancy: suitableForPregnancy,
+                                      suitableForBreastfeeding: suitableForBreastfeeding)
+        
+        let filteredMedications = filter.filterMedications()
+        
+        return filteredMedications
     }
-    
+
+
     // Sort Medications List
     private var sortedMedications: [Medication]
     {

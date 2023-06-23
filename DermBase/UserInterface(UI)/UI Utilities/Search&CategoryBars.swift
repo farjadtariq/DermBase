@@ -42,7 +42,7 @@ struct SearchBar: View
                     Image(systemName: "xmark.circle.fill")
                         .foregroundColor(Color.gray)
                 }
-                .padding(.trailing, 20)
+                .padding(.trailing, 32.5)
                 .padding(.top, 15)
             }
         }
@@ -96,4 +96,5 @@ struct CategoryPicker: View
         .frame(height: 44)
     }
 }
+
 
