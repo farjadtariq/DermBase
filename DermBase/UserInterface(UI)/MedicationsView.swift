@@ -36,7 +36,7 @@ struct MedicationsView: View
                 }
             }
             .sheet(isPresented: $showFilterSheet) {
-                FilterSheet(showSheet: $showFilterSheet, selectedYearRange: $viewModel.selectedYearRange, suitableForChildren: $viewModel.suitableForChildren, suitableForPregnancy: $viewModel.suitableForPregnancy, suitableForBreastfeeding: $viewModel.suitableForBreastfeeding)
+                FilterSheet(showSheet: $showFilterSheet, selectedYearRange: $viewModel.selectedYearRange, suitableForChildren: $viewModel.suitableForChildren, suitableForPregnancy: $viewModel.suitableForPregnancy, suitableForBreastfeeding: $viewModel.suitableForBreastfeeding, isInjection: $viewModel.isInjection, isTablet: $viewModel.isTablet, isTopical: $viewModel.isTopical)
             }
     }
     

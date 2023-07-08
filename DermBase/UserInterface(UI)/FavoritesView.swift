@@ -19,9 +19,8 @@ struct FavoritesView: View
     {
         content
             .sheet(isPresented: $showFilterSheet) {
-                FilterSheet(showSheet: $showFilterSheet, selectedYearRange: $medViewModel.selectedYearRange, suitableForChildren: $medViewModel.suitableForChildren, suitableForPregnancy: $medViewModel.suitableForPregnancy, suitableForBreastfeeding: $medViewModel.suitableForBreastfeeding)
+                FilterSheet(showSheet: $showFilterSheet, selectedYearRange: $medViewModel.selectedYearRange, suitableForChildren: $medViewModel.suitableForChildren, suitableForPregnancy: $medViewModel.suitableForPregnancy, suitableForBreastfeeding: $medViewModel.suitableForBreastfeeding, isInjection: $medViewModel.isInjection, isTablet: $medViewModel.isTablet, isTopical: $medViewModel.isTopical)
             }
-        
     }
     
     var content: some View

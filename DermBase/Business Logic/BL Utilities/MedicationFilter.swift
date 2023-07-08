@@ -16,9 +16,12 @@ class MedicationFilter {
     var suitableForChildren: Bool
     var suitableForPregnancy: Bool
     var suitableForBreastfeeding: Bool
+    var isInjection: Bool
+    var isTablet: Bool
+    var isTopical: Bool
     
     // Init
-    init(medications: [Medication], searchText: String, selectedCategory: String, selectedYearRange: String, suitableForChildren: Bool, suitableForPregnancy: Bool, suitableForBreastfeeding: Bool) {
+    init(medications: [Medication], searchText: String, selectedCategory: String, selectedYearRange: String, suitableForChildren: Bool, suitableForPregnancy: Bool, suitableForBreastfeeding: Bool, isInjection: Bool, isTablet: Bool, isTopical: Bool) {
         self.medications = medications
         self.searchText = searchText
         self.selectedCategory = selectedCategory
@@ -26,6 +29,9 @@ class MedicationFilter {
         self.suitableForChildren = suitableForChildren
         self.suitableForPregnancy = suitableForPregnancy
         self.suitableForBreastfeeding = suitableForBreastfeeding
+        self.isInjection = isInjection
+        self.isTablet = isTablet
+        self.isTopical = isTopical
     }
     
     // Function to filter medications
@@ -36,7 +42,10 @@ class MedicationFilter {
         let filteredByAge = filterByAge(filteredByYear)
         let filteredByPregnancy = filterByPregnancy(filteredByAge)
         let filteredByBreastfeeding = filterByBreastfeeding(filteredByPregnancy)
-        return filteredByBreastfeeding
+        let filteredByInjection = filterByInjection(filteredByBreastfeeding)
+        let filteredByTablet = filterByTablet(filteredByInjection)
+        let filteredByCream = filterByCream(filteredByTablet)
+        return filteredByCream
     }
 
     // Filter by search text
@@ -109,6 +118,39 @@ class MedicationFilter {
             return medications.filter { medication in
                 let useInBreastfeeding = medication.useInBreastfeeding.components(separatedBy: ",")[0]
                 return useInBreastfeeding.lowercased() == "yes"
+            }
+        } else {
+            return medications
+        }
+    }
+    
+    // Filter by route: injection
+    private func filterByInjection(_ medications: [Medication]) -> [Medication] {
+        if isInjection {
+            return medications.filter { medication in
+                return medication.route.contains("Injection")
+            }
+        } else {
+            return medications
+        }
+    }
+    
+    // Filter by route: pill
+    private func filterByTablet(_ medications: [Medication]) -> [Medication] {
+        if isTablet {
+            return medications.filter { medication in
+                return medication.route.contains("Tablet")
+            }
+        } else {
+            return medications
+        }
+    }
+    
+    // Filter by route: cream
+    private func filterByCream(_ medications: [Medication]) -> [Medication] {
+        if isTopical {
+            return medications.filter { medication in
+                return medication.route.contains("Topical")
             }
         } else {
             return medications

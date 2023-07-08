@@ -26,6 +26,9 @@ class MedicationsViewModel: ObservableObject
     @Published var suitableForChildren: Bool = false
     @Published var suitableForPregnancy: Bool = false
     @Published var suitableForBreastfeeding: Bool = false
+    @Published var isInjection: Bool = false
+    @Published var isTablet: Bool = false
+    @Published var isTopical: Bool = false
     
     
     // Create instances of cacheManager, firstoreManager and firestoreListener
@@ -54,7 +57,10 @@ class MedicationsViewModel: ObservableObject
                                       selectedYearRange: selectedYearRange,
                                       suitableForChildren: suitableForChildren,
                                       suitableForPregnancy: suitableForPregnancy,
-                                      suitableForBreastfeeding: suitableForBreastfeeding)
+                                      suitableForBreastfeeding: suitableForBreastfeeding,
+                                      isInjection: isInjection,
+                                      isTablet: isTablet,
+                                      isTopical: isTopical)
         
         let filteredMedications = filter.filterMedications()
         

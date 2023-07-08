@@ -39,8 +39,11 @@ struct FilterSheet: View {
     @Binding var suitableForChildren: Bool
     @Binding var suitableForPregnancy: Bool
     @Binding var suitableForBreastfeeding: Bool
+    @Binding var isInjection: Bool
+    @Binding var isTablet: Bool
+    @Binding var isTopical: Bool
 
-    let yearRanges = ["All", "1995-1999", "2000-2004", "2005-2009", "2015-2019", "2020-Present"]
+    let yearRanges = ["All", "1995-1999", "2000-2004", "2005-2009", "2010-2014", "2015-2019", "2020-Present"]
 
     var body: some View {
         NavigationView {
@@ -63,7 +66,18 @@ struct FilterSheet: View {
                     Toggle(isOn: $suitableForBreastfeeding) {
                         Text("Suitable for breastfeeding")
                     }
-                    
+                }
+                
+                Section(header: Text("Mode of Delivery")) {
+                    Toggle(isOn: $isInjection) {
+                        Text("💉 Injection")
+                    }
+                    Toggle(isOn: $isTablet) {
+                        Text("💊 Pill")
+                    }
+                    Toggle(isOn: $isTopical) {
+                        Text("🧴 Cream")
+                    }
                 }
             }
             .navigationBarTitle("Filters", displayMode: .inline)
@@ -71,6 +85,6 @@ struct FilterSheet: View {
                 showSheet = false
             })
         }
-        .presentationDetents([.height(400)])
+        .presentationDetents([.height(525)])
     }
 }

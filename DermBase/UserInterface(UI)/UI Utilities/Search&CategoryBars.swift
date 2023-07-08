@@ -19,7 +19,7 @@ struct SearchBar: View
     {
         ZStack(alignment: .trailing)
         {
-            TextField("Search", text: $text)
+            TextField("Drugs: Search", text: $text)
                 .padding(.trailing, showClearButton ? 25 : 0)
                 .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                 .background(Color(UIColor.systemBackground))
