@@ -71,6 +71,7 @@
 		C3218AFC29E858B600AA2C27 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 		C32CA47A29FAFA1200104BE3 /* MedCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedCategories.swift; sourceTree = "<group>"; };
 		C32CA47C29FC522600104BE3 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		C335B3762A78C3F1004B8B89 /* DermBase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DermBase.entitlements; sourceTree = "<group>"; };
 		C34B766929ED98CD002AADB5 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		C34B766C29ED991D002AADB5 /* PasswordValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidation.swift; sourceTree = "<group>"; };
 		C34B766E29ED9FAA002AADB5 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
@@ -224,6 +225,7 @@
 		C3B6E2F729D91C3F00A4AFAC /* DermBase */ = {
 			isa = PBXGroup;
 			children = (
+				C335B3762A78C3F1004B8B89 /* DermBase.entitlements */,
 				C3B6E2F829D91C3F00A4AFAC /* DermBaseApp.swift */,
 				C374F81829DDDE5700F856CA /* UserInterface(UI) */,
 				C374F81929DDDE9700F856CA /* Business Logic */,
@@ -600,13 +602,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DermBase/DermBase.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"DermBase/Preview Content\"";
 				DEVELOPMENT_TEAM = 2W8LWG84DK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Dermbase;
+				INFOPLIST_KEY_CFBundleDisplayName = DermBase;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -633,13 +636,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DermBase/DermBase.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"DermBase/Preview Content\"";
 				DEVELOPMENT_TEAM = 2W8LWG84DK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Dermbase;
+				INFOPLIST_KEY_CFBundleDisplayName = DermBase;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
