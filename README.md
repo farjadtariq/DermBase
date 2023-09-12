@@ -1,6 +1,6 @@
 # DermBase
 
-![DermBase Logo](./assets/logo.png)
+![DermBase Logo](DermBase/Assets.xcassets/LogoWBg.imageset/LogoWbgx1.png)
 
 **Your Dermatology Companion: Comprehensive medication database for dermatologists and patients.**
 
